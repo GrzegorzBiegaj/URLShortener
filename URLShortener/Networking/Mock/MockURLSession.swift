@@ -10,9 +10,7 @@ import Foundation
 
 class MockURLSession: URLSessionProtocol {
     
-    static var shared: URLSessionProtocol {
-        return MockURLSession()
-    }
+    static let shared = MockURLSession()
     
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol {
         let dataResult = MockURLHandler().handleData(request: request)
