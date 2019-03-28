@@ -15,6 +15,19 @@
 		26E5A34C224CAE72003225D9 /* URLShortenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A34B224CAE72003225D9 /* URLShortenerTests.swift */; };
 		26E5A357224CAE72003225D9 /* URLShortenerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A356224CAE72003225D9 /* URLShortenerUITests.swift */; };
 		26E5A365224CAF4F003225D9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A364224CAF4F003225D9 /* .gitignore */; };
+		26E5A36F224CCFD1003225D9 /* RequestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A36E224CCFD1003225D9 /* RequestConnection.swift */; };
+		26E5A371224CCFDF003225D9 /* InterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A370224CCFDF003225D9 /* InterpreterProtocol.swift */; };
+		26E5A373224CCFEF003225D9 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A372224CCFEF003225D9 /* Types.swift */; };
+		26E5A375224CD004003225D9 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A374224CD004003225D9 /* RequestProtocol.swift */; };
+		26E5A377224CD048003225D9 /* ReadShortenerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A376224CD048003225D9 /* ReadShortenerRequest.swift */; };
+		26E5A379224CD064003225D9 /* ReadShortenerInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A378224CD064003225D9 /* ReadShortenerInterpreter.swift */; };
+		26E5A37B224CD072003225D9 /* ShortenerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A37A224CD072003225D9 /* ShortenerController.swift */; };
+		26E5A37D224CD565003225D9 /* Shortener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A37C224CD565003225D9 /* Shortener.swift */; };
+		26E5A37F224CD830003225D9 /* WriteShortenerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A37E224CD830003225D9 /* WriteShortenerRequest.swift */; };
+		26E5A381224CD8F1003225D9 /* WriteShortenerInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A380224CD8F1003225D9 /* WriteShortenerInterpreter.swift */; };
+		26E5A384224CE0BA003225D9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */; };
+		26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A385224CE1A0003225D9 /* MockURLSession.swift */; };
+		26E5A388224CF52B003225D9 /* MockURLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A387224CF52B003225D9 /* MockURLHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +62,19 @@
 		26E5A356224CAE72003225D9 /* URLShortenerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLShortenerUITests.swift; sourceTree = "<group>"; };
 		26E5A358224CAE72003225D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26E5A364224CAF4F003225D9 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		26E5A36E224CCFD1003225D9 /* RequestConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConnection.swift; sourceTree = "<group>"; };
+		26E5A370224CCFDF003225D9 /* InterpreterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterProtocol.swift; sourceTree = "<group>"; };
+		26E5A372224CCFEF003225D9 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		26E5A374224CD004003225D9 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		26E5A376224CD048003225D9 /* ReadShortenerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadShortenerRequest.swift; sourceTree = "<group>"; };
+		26E5A378224CD064003225D9 /* ReadShortenerInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadShortenerInterpreter.swift; sourceTree = "<group>"; };
+		26E5A37A224CD072003225D9 /* ShortenerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenerController.swift; sourceTree = "<group>"; };
+		26E5A37C224CD565003225D9 /* Shortener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortener.swift; sourceTree = "<group>"; };
+		26E5A37E224CD830003225D9 /* WriteShortenerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteShortenerRequest.swift; sourceTree = "<group>"; };
+		26E5A380224CD8F1003225D9 /* WriteShortenerInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteShortenerInterpreter.swift; sourceTree = "<group>"; };
+		26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		26E5A385224CE1A0003225D9 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		26E5A387224CF52B003225D9 /* MockURLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +126,14 @@
 		26E5A335224CAE6F003225D9 /* URLShortener */ = {
 			isa = PBXGroup;
 			children = (
+				26E5A366224CB23F003225D9 /* UI */,
+				26E5A367224CB24B003225D9 /* Controllers */,
+				26E5A368224CB257003225D9 /* Requests */,
+				26E5A369224CB25F003225D9 /* Interpreters */,
+				26E5A36A224CB273003225D9 /* Networking */,
+				26E5A36B224CB27F003225D9 /* Models */,
+				26E5A36C224CB287003225D9 /* Storages */,
+				26E5A36D224CB290003225D9 /* Extensions */,
 				26E5A336224CAE6F003225D9 /* AppDelegate.swift */,
 				26E5A338224CAE6F003225D9 /* ViewController.swift */,
 				26E5A33A224CAE6F003225D9 /* Main.storyboard */,
@@ -126,6 +160,83 @@
 				26E5A358224CAE72003225D9 /* Info.plist */,
 			);
 			path = URLShortenerUITests;
+			sourceTree = "<group>";
+		};
+		26E5A366224CB23F003225D9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		26E5A367224CB24B003225D9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				26E5A37A224CD072003225D9 /* ShortenerController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		26E5A368224CB257003225D9 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				26E5A376224CD048003225D9 /* ReadShortenerRequest.swift */,
+				26E5A37E224CD830003225D9 /* WriteShortenerRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		26E5A369224CB25F003225D9 /* Interpreters */ = {
+			isa = PBXGroup;
+			children = (
+				26E5A378224CD064003225D9 /* ReadShortenerInterpreter.swift */,
+				26E5A380224CD8F1003225D9 /* WriteShortenerInterpreter.swift */,
+			);
+			path = Interpreters;
+			sourceTree = "<group>";
+		};
+		26E5A36A224CB273003225D9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				26E5A36E224CCFD1003225D9 /* RequestConnection.swift */,
+				26E5A374224CD004003225D9 /* RequestProtocol.swift */,
+				26E5A370224CCFDF003225D9 /* InterpreterProtocol.swift */,
+				26E5A372224CCFEF003225D9 /* Types.swift */,
+				26E5A382224CE07A003225D9 /* Mock */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		26E5A36B224CB27F003225D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				26E5A37C224CD565003225D9 /* Shortener.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26E5A36C224CB287003225D9 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		26E5A36D224CB290003225D9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		26E5A382224CE07A003225D9 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */,
+				26E5A385224CE1A0003225D9 /* MockURLSession.swift */,
+				26E5A387224CF52B003225D9 /* MockURLHandler.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +371,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E5A36F224CCFD1003225D9 /* RequestConnection.swift in Sources */,
 				26E5A339224CAE6F003225D9 /* ViewController.swift in Sources */,
+				26E5A37F224CD830003225D9 /* WriteShortenerRequest.swift in Sources */,
+				26E5A371224CCFDF003225D9 /* InterpreterProtocol.swift in Sources */,
+				26E5A388224CF52B003225D9 /* MockURLHandler.swift in Sources */,
+				26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */,
+				26E5A37B224CD072003225D9 /* ShortenerController.swift in Sources */,
+				26E5A379224CD064003225D9 /* ReadShortenerInterpreter.swift in Sources */,
+				26E5A375224CD004003225D9 /* RequestProtocol.swift in Sources */,
+				26E5A381224CD8F1003225D9 /* WriteShortenerInterpreter.swift in Sources */,
+				26E5A384224CE0BA003225D9 /* URLSessionProtocol.swift in Sources */,
+				26E5A373224CCFEF003225D9 /* Types.swift in Sources */,
 				26E5A337224CAE6F003225D9 /* AppDelegate.swift in Sources */,
+				26E5A37D224CD565003225D9 /* Shortener.swift in Sources */,
+				26E5A377224CD048003225D9 /* ReadShortenerRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
