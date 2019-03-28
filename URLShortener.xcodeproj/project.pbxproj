@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		26E5A337224CAE6F003225D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A336224CAE6F003225D9 /* AppDelegate.swift */; };
-		26E5A339224CAE6F003225D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A338224CAE6F003225D9 /* ViewController.swift */; };
 		26E5A33C224CAE6F003225D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A33A224CAE6F003225D9 /* Main.storyboard */; };
 		26E5A33E224CAE71003225D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A33D224CAE71003225D9 /* Assets.xcassets */; };
 		26E5A341224CAE71003225D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A33F224CAE71003225D9 /* LaunchScreen.storyboard */; };
@@ -28,6 +27,7 @@
 		26E5A384224CE0BA003225D9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */; };
 		26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A385224CE1A0003225D9 /* MockURLSession.swift */; };
 		26E5A388224CF52B003225D9 /* MockURLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A387224CF52B003225D9 /* MockURLHandler.swift */; };
+		26E5A38A224D0BBC003225D9 /* ShortnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A389224D0BBC003225D9 /* ShortnerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 /* Begin PBXFileReference section */
 		26E5A333224CAE6F003225D9 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E5A336224CAE6F003225D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26E5A338224CAE6F003225D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		26E5A33B224CAE6F003225D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26E5A33D224CAE71003225D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26E5A340224CAE71003225D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		26E5A385224CE1A0003225D9 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		26E5A387224CF52B003225D9 /* MockURLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLHandler.swift; sourceTree = "<group>"; };
+		26E5A389224D0BBC003225D9 /* ShortnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortnerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,6 @@
 				26E5A36C224CB287003225D9 /* Storages */,
 				26E5A36D224CB290003225D9 /* Extensions */,
 				26E5A336224CAE6F003225D9 /* AppDelegate.swift */,
-				26E5A338224CAE6F003225D9 /* ViewController.swift */,
 				26E5A33A224CAE6F003225D9 /* Main.storyboard */,
 				26E5A33D224CAE71003225D9 /* Assets.xcassets */,
 				26E5A33F224CAE71003225D9 /* LaunchScreen.storyboard */,
@@ -165,6 +164,7 @@
 		26E5A366224CB23F003225D9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				26E5A389224D0BBC003225D9 /* ShortnerViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -372,7 +372,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				26E5A36F224CCFD1003225D9 /* RequestConnection.swift in Sources */,
-				26E5A339224CAE6F003225D9 /* ViewController.swift in Sources */,
 				26E5A37F224CD830003225D9 /* WriteShortenerRequest.swift in Sources */,
 				26E5A371224CCFDF003225D9 /* InterpreterProtocol.swift in Sources */,
 				26E5A388224CF52B003225D9 /* MockURLHandler.swift in Sources */,
@@ -381,6 +380,7 @@
 				26E5A379224CD064003225D9 /* ReadShortenerInterpreter.swift in Sources */,
 				26E5A375224CD004003225D9 /* RequestProtocol.swift in Sources */,
 				26E5A381224CD8F1003225D9 /* WriteShortenerInterpreter.swift in Sources */,
+				26E5A38A224D0BBC003225D9 /* ShortnerViewController.swift in Sources */,
 				26E5A384224CE0BA003225D9 /* URLSessionProtocol.swift in Sources */,
 				26E5A373224CCFEF003225D9 /* Types.swift in Sources */,
 				26E5A337224CAE6F003225D9 /* AppDelegate.swift in Sources */,

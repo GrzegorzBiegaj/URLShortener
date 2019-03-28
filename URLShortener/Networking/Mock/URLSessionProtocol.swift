@@ -14,9 +14,13 @@ protocol URLSessionDataTaskProtocol {
 
 protocol URLSessionProtocol {
     
-    static var shared: URLSessionProtocol { get }
-    
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol
 }
 
+extension URLSession: URLSessionProtocol {
+   
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol {
+        return URLSession.shared.dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTask as URLSessionDataTaskProtocol
+    }
+}
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}

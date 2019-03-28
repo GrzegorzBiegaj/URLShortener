@@ -22,7 +22,14 @@ protocol RequestProtocol {
 }
 
 extension RequestProtocol {
+    // default parameters
+    
+    // handling mocked URLSession requests
     var urlSession: URLSessionProtocol { return MockURLSession.shared }
+    
+    // handling URLSession requests
+//    var urlSession: URLSessionProtocol { return URLSession.shared }
+    
     var successStatusCode: Int { return 200 }
     var httpMethod: HTTPMethod { return .get }
     var requestParameters: RequestParameters { return nil }

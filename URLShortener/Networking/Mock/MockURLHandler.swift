@@ -18,22 +18,39 @@ class MockURLHandler {
     
     func handleData(request: URLRequest) -> DataResult {
         var statusCode = 200
-        let headerFields: [String : String]? = nil
+        var error: Error?
+        var data: Data?
         
         guard let url = request.url else { return DataResult(data: nil, response: nil, error: nil) }
-        let response = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil, headerFields: headerFields)
         
         switch request.httpMethod {
         case HTTPMethod.get.rawValue:
-            break
+            data = restore()
         case HTTPMethod.post.rawValue:
-            break
+            if let data = request.httpBody {
+                store(data: data)
+            } else {
+                statusCode = 400
+                error = NSError(domain: "URL not found", code: statusCode, userInfo: nil)
+            }
         case HTTPMethod.delete.rawValue:
             break
         default:
-            statusCode = 500
+            statusCode = 400
+            error = NSError(domain: "Invalid request", code: statusCode, userInfo: nil)
             break
         }
-        return DataResult(data: nil, response: response, error: nil)
+        
+        let response = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil, headerFields: request.allHTTPHeaderFields)
+        
+        return DataResult(data: data, response: response,   error: error)
+    }
+    
+    fileprivate func store(data: Data?) {
+        
+    }
+    
+    fileprivate func restore() -> Data? {
+        return nil
     }
 }
