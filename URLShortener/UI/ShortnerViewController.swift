@@ -10,14 +10,37 @@ import UIKit
 
 class ShortnerViewController: UITableViewController {
 
-    @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = "URL Shortener"
+            titleLabel.textColor = ShortenerColor.darkBlue.color
+        }
+    }
+
+    @IBOutlet weak var urlTextField: UITextField! {
+        didSet {
+            urlTextField.placeholder = "Enter the link to shorten"
+            let height = urlTextField.bounds.height - 8
+            let arrowView = ArrowView(frame: CGRect(x: 0, y: 0, width: height, height: height))
+            arrowView.backgroundViewColor = ShortenerColor.green.color
+            arrowView.arrowButtonColor = ShortenerColor.white.color
+            arrowView.delegate = self
+            urlTextField.rightViewMode = .always
+            urlTextField.rightView = arrowView
+        }
+    }
     
     let shortenerController = ShortenerController()
     var model: [Shortener] = [] { didSet { tableView.reloadData() } }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        customizeHeaderView()
         getShorteners()
+    }
+    
+    fileprivate func customizeHeaderView() {
+        tableView.tableHeaderView?.backgroundColor = ShortenerColor.blue.color
     }
     
     func getShorteners() {
@@ -31,8 +54,7 @@ class ShortnerViewController: UITableViewController {
         }
     }
 
-    @IBAction func onSendUrlButtonTap(_ sender: UIButton) {
-        guard let text = urlTextField.text else { return }
+    func addShortener(text: String) {
         shortenerController.storeShortenerData(url: text) { (response) in
             switch response {
             case .success(_):
@@ -54,4 +76,12 @@ class ShortnerViewController: UITableViewController {
         return cell
     }
 
+}
+
+extension ShortnerViewController: ArrowViewDelegate {
+
+    func onButtonTap(button: UIButton) {
+        guard let text = urlTextField.text else { return }
+        addShortener(text: text)
+    }
 }

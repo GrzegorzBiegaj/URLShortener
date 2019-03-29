@@ -10,9 +10,14 @@ import Foundation
 
 class MockURLHandler {
     
-    static let prefix = "https://url-shortener.com/"
+    // MARK: Configuration
+    
+    fileprivate static let prefix = "https://url-shortener.com/"
+    fileprivate static let schemes = ["http", "https"]
     
     fileprivate let storage = InMemoryStorage.sharedInstance
+    
+    // MARK: Public interface
     
     func handleData(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         var statusCode = 200
@@ -50,9 +55,9 @@ class MockURLHandler {
         completionHandler(data, response, error)
     }
     
-    // MARK - Private data validation
+    // MARK: Private data validation
     
-    enum ValidationResult {
+    fileprivate enum ValidationResult {
         case success(String)
         case wrongUrlKey
         case noUrl
@@ -63,12 +68,14 @@ class MockURLHandler {
     fileprivate func validateUrl(data: Data?) -> ValidationResult {
         guard let data = data else { return .noUrl }
         guard let response = try? JSONDecoder().decode(WriteData.self, from: data) else { return .wrongUrlKey }
-        guard let url = URL(string: response.url), url.scheme == "http" || url.scheme == "https" else { return .wrongUrlScheme }
+        guard let url = URL(string: response.url) else { return .wrongUrlScheme }
+        let filteredSchemes = MockURLHandler.schemes.filter { $0 == url.scheme }
+        guard !filteredSchemes.isEmpty else { return .wrongUrlScheme }
         guard let items = getShorteners?.items else { return .success(response.url) }
         return items.filter { $0.url == response.url }.isEmpty ? .success(response.url) : .urlAlreadyExists
     }
     
-    // MARK - Private store / restore
+    // MARK: Private store / restore
     
     fileprivate struct WriteData: Decodable {
         let url: String
@@ -98,9 +105,9 @@ class MockURLHandler {
         return sorted.map { Shortener(id: $0.id, url: $0.url, shortUrl: MockURLHandler.prefix + $0.shortUrl, creationDate: $0.creationDate) }
     }
     
-    // MARK - Private generate keys
+    // MARK: Private generate keys
     
-    var makeId: Int {
+    fileprivate var makeId: Int {
         return UUID().hashValue
     }
     
