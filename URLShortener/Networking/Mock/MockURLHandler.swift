@@ -10,11 +10,15 @@ import Foundation
 
 class MockURLHandler {
     
+    static let prefix = "https://url-shortener.com/"
+    
     struct DataResult {
         let data: Data?
         let response: URLResponse?
         let error: Error?
     }
+    
+    fileprivate let storage = InMemoryStorage.sharedInstance
     
     func handleData(request: URLRequest) -> DataResult {
         var statusCode = 200
@@ -27,11 +31,15 @@ class MockURLHandler {
         case HTTPMethod.get.rawValue:
             data = restore()
         case HTTPMethod.post.rawValue:
-            if let data = request.httpBody {
-                store(data: data)
-            } else {
-                statusCode = 400
+            switch validateUrl(data: request.httpBody) {
+            case .noUrl:
                 error = NSError(domain: "URL not found", code: statusCode, userInfo: nil)
+            case .wrongUrlKey:
+                error = NSError(domain: "Wrong URL key", code: statusCode, userInfo: nil)
+            case .urlAlreadyExists:
+                error = NSError(domain: "URL already exists", code: statusCode, userInfo: nil)
+            case .success(let url):
+                data = store(url: url)
             }
         case HTTPMethod.delete.rawValue:
             break
@@ -46,11 +54,61 @@ class MockURLHandler {
         return DataResult(data: data, response: response,   error: error)
     }
     
-    fileprivate func store(data: Data?) {
-        
+    // MARK - Private data validation
+    
+    enum ValidationResult {
+        case success(String)
+        case wrongUrlKey
+        case noUrl
+        case urlAlreadyExists
+    }
+    
+    fileprivate func validateUrl(data: Data?) -> ValidationResult {
+        guard let data = data else { return .noUrl }
+        guard let response = try? JSONDecoder().decode(WriteData.self, from: data) else { return .wrongUrlKey }
+        guard let items = getShorteners?.items else { return .success(response.url) }
+        return items.filter { $0.url == response.url }.isEmpty ? .success(response.url) : .urlAlreadyExists
+    }
+    
+    // MARK - Private store / restore
+    
+    fileprivate struct WriteData: Decodable {
+        let url: String
+    }
+    
+    fileprivate func store(url: String) -> Data? {
+        let shortUrl = makeShortUrl(url: url)
+        let shortener = Shortener(id: makeId, url: url, shortUrl: shortUrl, creationDate: Date())
+        let localShorteners = getShorteners ?? MockStorageShorteners(items: [])
+        storage.store(MockStorageShorteners(items: localShorteners.items + [shortener]))
+        guard let resultData = try? JSONEncoder().encode(shortener) else { return nil }
+        return resultData
     }
     
     fileprivate func restore() -> Data? {
-        return nil
+        guard let data = try? JSONEncoder().encode(getSortedShorteners) else { return nil }
+        return data
+    }
+    
+    fileprivate var getShorteners: MockStorageShorteners? {
+        return storage.tryRestore()
+    }
+    
+    fileprivate var getSortedShorteners: [Shortener] {
+        guard let items = getShorteners?.items else { return [] }
+        let sorted = items.sorted(by: { $0.creationDate > $1.creationDate })
+        return sorted.map { Shortener(id: $0.id, url: $0.url, shortUrl: MockURLHandler.prefix + $0.shortUrl, creationDate: $0.creationDate) }
+    }
+    
+    // MARK - Private generate keys
+    
+    var makeId: Int {
+        return UUID().hashValue
+    }
+    
+    fileprivate func makeShortUrl(url: String) -> String {
+        let unicodeScalars = url.unicodeScalars.map { Int($0.value) }
+        let value = unicodeScalars.reduce(0, +)
+        return String(value)
     }
 }

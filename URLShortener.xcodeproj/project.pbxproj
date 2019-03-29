@@ -28,6 +28,8 @@
 		26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A385224CE1A0003225D9 /* MockURLSession.swift */; };
 		26E5A388224CF52B003225D9 /* MockURLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A387224CF52B003225D9 /* MockURLHandler.swift */; };
 		26E5A38A224D0BBC003225D9 /* ShortnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A389224D0BBC003225D9 /* ShortnerViewController.swift */; };
+		26E5A38F224E0034003225D9 /* InMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A38E224E0034003225D9 /* InMemoryStorage.swift */; };
+		26E5A391224E411F003225D9 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A390224E411F003225D9 /* MockStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		26E5A385224CE1A0003225D9 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		26E5A387224CF52B003225D9 /* MockURLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLHandler.swift; sourceTree = "<group>"; };
 		26E5A389224D0BBC003225D9 /* ShortnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortnerViewController.swift; sourceTree = "<group>"; };
+		26E5A38E224E0034003225D9 /* InMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStorage.swift; sourceTree = "<group>"; };
+		26E5A390224E411F003225D9 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +136,7 @@
 				26E5A369224CB25F003225D9 /* Interpreters */,
 				26E5A36A224CB273003225D9 /* Networking */,
 				26E5A36B224CB27F003225D9 /* Models */,
-				26E5A36C224CB287003225D9 /* Storages */,
-				26E5A36D224CB290003225D9 /* Extensions */,
+				26E5A38D224E0029003225D9 /* Storages */,
 				26E5A336224CAE6F003225D9 /* AppDelegate.swift */,
 				26E5A33A224CAE6F003225D9 /* Main.storyboard */,
 				26E5A33D224CAE71003225D9 /* Assets.xcassets */,
@@ -215,28 +218,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		26E5A36C224CB287003225D9 /* Storages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storages;
-			sourceTree = "<group>";
-		};
-		26E5A36D224CB290003225D9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		26E5A382224CE07A003225D9 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
 				26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */,
 				26E5A385224CE1A0003225D9 /* MockURLSession.swift */,
 				26E5A387224CF52B003225D9 /* MockURLHandler.swift */,
+				26E5A390224E411F003225D9 /* MockStorage.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		26E5A38D224E0029003225D9 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				26E5A38E224E0034003225D9 /* InMemoryStorage.swift */,
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,9 +371,11 @@
 			files = (
 				26E5A36F224CCFD1003225D9 /* RequestConnection.swift in Sources */,
 				26E5A37F224CD830003225D9 /* WriteShortenerRequest.swift in Sources */,
+				26E5A391224E411F003225D9 /* MockStorage.swift in Sources */,
 				26E5A371224CCFDF003225D9 /* InterpreterProtocol.swift in Sources */,
 				26E5A388224CF52B003225D9 /* MockURLHandler.swift in Sources */,
 				26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */,
+				26E5A38F224E0034003225D9 /* InMemoryStorage.swift in Sources */,
 				26E5A37B224CD072003225D9 /* ShortenerController.swift in Sources */,
 				26E5A379224CD064003225D9 /* ReadShortenerInterpreter.swift in Sources */,
 				26E5A375224CD004003225D9 /* RequestProtocol.swift in Sources */,
