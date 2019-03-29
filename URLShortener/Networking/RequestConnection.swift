@@ -29,7 +29,7 @@ class RequestConnection: RequestConnectionProtocol {
 
             let response = request.interpreter.interpret(data: data, response: res as? HTTPURLResponse, error: error, successStatusCode: request.successStatusCode)
 
-            self.connectionLog(request, value: "Request")
+            self.connectionLog(request)
             DispatchQueue.main.async {
                 handler(response)
             }
@@ -67,12 +67,8 @@ class RequestConnection: RequestConnectionProtocol {
     
     // MARK: private methods
     
-    fileprivate func connectionLog<Req: RequestProtocol>(_ request: Req, value: String) {
-        
-        let splitted = request.endpoint.components(separatedBy: "/")
-        if let normalizedEndpoint = splitted.count > 0 ? splitted.last : request.endpoint {
-            print("Backend connection: \(normalizedEndpoint) - \(value)")
-            print (request.endpoint)
-        }
+    fileprivate func connectionLog<Req: RequestProtocol>(_ request: Req) {
+        print("\(String(describing: type(of: request.urlSession))) connection: Request \(request.httpMethod.rawValue)")
+        print (request.endpoint)
     }
 }

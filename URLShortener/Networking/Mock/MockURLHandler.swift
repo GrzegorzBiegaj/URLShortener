@@ -33,11 +33,13 @@ class MockURLHandler {
         case HTTPMethod.post.rawValue:
             switch validateUrl(data: request.httpBody) {
             case .noUrl:
-                error = NSError(domain: "URL not found", code: statusCode, userInfo: nil)
+                error = NSError(domain: "URL not found", code: 100, userInfo: nil)
             case .wrongUrlKey:
-                error = NSError(domain: "Wrong URL key", code: statusCode, userInfo: nil)
+                error = NSError(domain: "Wrong URL key", code: 101, userInfo: nil)
+            case .wrongUrlScheme:
+                error = NSError(domain: "Wrong URL scheme, only http and https are supported", code: 102, userInfo: nil)
             case .urlAlreadyExists:
-                error = NSError(domain: "URL already exists", code: statusCode, userInfo: nil)
+                error = NSError(domain: "URL already exists", code: 103, userInfo: nil)
             case .success(let url):
                 data = store(url: url)
             }
@@ -45,7 +47,7 @@ class MockURLHandler {
             break
         default:
             statusCode = 400
-            error = NSError(domain: "Invalid request", code: statusCode, userInfo: nil)
+            error = NSError(domain: "Invalid request", code: 150, userInfo: nil)
             break
         }
         
@@ -60,12 +62,14 @@ class MockURLHandler {
         case success(String)
         case wrongUrlKey
         case noUrl
+        case wrongUrlScheme
         case urlAlreadyExists
     }
     
     fileprivate func validateUrl(data: Data?) -> ValidationResult {
         guard let data = data else { return .noUrl }
         guard let response = try? JSONDecoder().decode(WriteData.self, from: data) else { return .wrongUrlKey }
+        guard let url = URL(string: response.url), url.scheme == "http" || url.scheme == "https" else { return .wrongUrlScheme }
         guard let items = getShorteners?.items else { return .success(response.url) }
         return items.filter { $0.url == response.url }.isEmpty ? .success(response.url) : .urlAlreadyExists
     }
