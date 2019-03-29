@@ -20,6 +20,7 @@ class ShortnerViewController: UITableViewController {
     @IBOutlet weak var urlTextField: UITextField! {
         didSet {
             urlTextField.placeholder = "Enter the link to shorten"
+            urlTextField.delegate = self
             let height = urlTextField.bounds.height - 8
             let arrowView = ArrowView(frame: CGRect(x: 0, y: 0, width: height, height: height))
             arrowView.backgroundViewColor = ShortenerColor.green.color
@@ -35,12 +36,13 @@ class ShortnerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizeHeaderView()
+        configureVC()
         getShorteners()
     }
     
-    fileprivate func customizeHeaderView() {
+    fileprivate func configureVC() {
         tableView.tableHeaderView?.backgroundColor = ShortenerColor.blue.color
+        hideKeyboardWhenTappedAround()
     }
     
     func getShorteners() {
@@ -54,7 +56,8 @@ class ShortnerViewController: UITableViewController {
         }
     }
 
-    func addShortener(text: String) {
+    func addShortener() {
+        guard let text = urlTextField.text else { return }
         shortenerController.storeShortenerData(url: text) { (response) in
             switch response {
             case .success(_):
@@ -78,10 +81,22 @@ class ShortnerViewController: UITableViewController {
 
 }
 
+// MARK: UITextFieldDelegate
+
+extension ShortnerViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        addShortener()
+        return true
+    }
+}
+
+// MARK: ArrowViewDelegate
+
 extension ShortnerViewController: ArrowViewDelegate {
 
     func onButtonTap(button: UIButton) {
-        guard let text = urlTextField.text else { return }
-        addShortener(text: text)
+        addShortener()
     }
 }

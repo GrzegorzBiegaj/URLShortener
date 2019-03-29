@@ -10,6 +10,7 @@
 		22FE04AD224EC1F90029DAE9 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04AC224EC1F90029DAE9 /* ArrowView.swift */; };
 		22FE04AF224EC22B0029DAE9 /* ArrowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE04AE224EC22B0029DAE9 /* ArrowView.xib */; };
 		22FE04B2224ED3100029DAE9 /* ShortenerColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04B1224ED3100029DAE9 /* ShortenerColorPalette.swift */; };
+		22FE04B8224EDE740029DAE9 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04B7224EDE740029DAE9 /* UIViewController+Keyboard.swift */; };
 		26E5A337224CAE6F003225D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A336224CAE6F003225D9 /* AppDelegate.swift */; };
 		26E5A33E224CAE71003225D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A33D224CAE71003225D9 /* Assets.xcassets */; };
 		26E5A341224CAE71003225D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A33F224CAE71003225D9 /* LaunchScreen.storyboard */; };
@@ -56,6 +57,7 @@
 		22FE04AC224EC1F90029DAE9 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		22FE04AE224EC22B0029DAE9 /* ArrowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrowView.xib; sourceTree = "<group>"; };
 		22FE04B1224ED3100029DAE9 /* ShortenerColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenerColorPalette.swift; sourceTree = "<group>"; };
+		22FE04B7224EDE740029DAE9 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		26E5A333224CAE6F003225D9 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E5A336224CAE6F003225D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26E5A33D224CAE71003225D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		22FE04B6224EDE510029DAE9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				22FE04B7224EDE740029DAE9 /* UIViewController+Keyboard.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		26E5A32A224CAE6F003225D9 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 				26E5A36A224CB273003225D9 /* Networking */,
 				26E5A36B224CB27F003225D9 /* Models */,
 				26E5A38D224E0029003225D9 /* Storages */,
+				22FE04B6224EDE510029DAE9 /* Extensions */,
 				22FE04B0224ED2440029DAE9 /* Resources */,
 				26E5A336224CAE6F003225D9 /* AppDelegate.swift */,
 				26E5A33D224CAE71003225D9 /* Assets.xcassets */,
@@ -410,6 +421,7 @@
 				26E5A38A224D0BBC003225D9 /* ShortnerViewController.swift in Sources */,
 				26E5A384224CE0BA003225D9 /* URLSessionProtocol.swift in Sources */,
 				26E5A373224CCFEF003225D9 /* Types.swift in Sources */,
+				22FE04B8224EDE740029DAE9 /* UIViewController+Keyboard.swift in Sources */,
 				22FE04AD224EC1F90029DAE9 /* ArrowView.swift in Sources */,
 				26E5A337224CAE6F003225D9 /* AppDelegate.swift in Sources */,
 				26E5A37D224CD565003225D9 /* Shortener.swift in Sources */,
