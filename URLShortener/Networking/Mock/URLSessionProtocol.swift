@@ -23,4 +23,5 @@ extension URLSession: URLSessionProtocol {
         return URLSession.shared.dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTask as URLSessionDataTaskProtocol
     }
 }
+
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}

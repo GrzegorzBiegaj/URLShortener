@@ -12,20 +12,14 @@ class MockURLHandler {
     
     static let prefix = "https://url-shortener.com/"
     
-    struct DataResult {
-        let data: Data?
-        let response: URLResponse?
-        let error: Error?
-    }
-    
     fileprivate let storage = InMemoryStorage.sharedInstance
     
-    func handleData(request: URLRequest) -> DataResult {
+    func handleData(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         var statusCode = 200
         var error: Error?
         var data: Data?
         
-        guard let url = request.url else { return DataResult(data: nil, response: nil, error: nil) }
+        guard let url = request.url else { completionHandler(nil, nil, nil); return }
         
         switch request.httpMethod {
         case HTTPMethod.get.rawValue:
@@ -53,7 +47,7 @@ class MockURLHandler {
         
         let response = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil, headerFields: request.allHTTPHeaderFields)
         
-        return DataResult(data: data, response: response,   error: error)
+        completionHandler(data, response, error)
     }
     
     // MARK - Private data validation
