@@ -11,6 +11,17 @@ import XCTest
 
 class WriteShortURLRequestTests: XCTestCase {
 
-
+    func testWriteRequest() {
+        
+        let loversRequest = WriteShortURLRequest(url: "http://testUrl.ch")
+        
+        XCTAssertEqual(loversRequest.successStatusCode, 201)
+        XCTAssertEqual(loversRequest.httpMethod, .post)
+        XCTAssertEqual(loversRequest.endpoint, "http://url-shortener.com/api/short")
+        XCTAssertEqual(loversRequest.headers?["Content-Type"], "application/json")
+        XCTAssertEqual(loversRequest.bodyParameters?["url"] as! String, loversRequest.url)
+        XCTAssertNil(loversRequest.requestParameters)
+        XCTAssertNotNil(loversRequest.interpreter)
+    }
 
 }
