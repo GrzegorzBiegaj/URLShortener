@@ -40,7 +40,7 @@ class RequestConnection: RequestConnectionProtocol {
     
     // MARK: private methods
     
-    private func setupURLRequest<Req: RequestProtocol>(_ request: Req, url: URL) -> URLRequest? {
+    fileprivate func setupURLRequest<Req: RequestProtocol>(_ request: Req, url: URL) -> URLRequest? {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.httpMethod.rawValue
@@ -59,7 +59,7 @@ class RequestConnection: RequestConnectionProtocol {
         return urlRequest
     }
     
-    private func computeURL<Req: RequestProtocol>(_ request: Req) -> URL? {
+    fileprivate func computeURL<Req: RequestProtocol>(_ request: Req) -> URL? {
         
         var urlComponents = URLComponents(string: request.endpoint)
         urlComponents?.queryItems = request.requestParameters?.map { return URLQueryItem(name: $0.key, value: "\($0.value)")}
