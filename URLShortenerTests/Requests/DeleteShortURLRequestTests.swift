@@ -1,5 +1,5 @@
 //
-//  ShortURLTests.swift
+//  DeleteShortURLRequestTests.swift
 //  URLShortenerTests
 //
 //  Created by Grzesiek on 30/03/2019.
@@ -7,8 +7,10 @@
 //
 
 import XCTest
+@testable import URLShortener
 
-class ShortURLTests: XCTestCase {
+class DeleteShortURLRequestTests: XCTestCase {
+
 
 
 }

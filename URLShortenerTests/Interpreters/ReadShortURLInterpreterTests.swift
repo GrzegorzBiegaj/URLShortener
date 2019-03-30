@@ -11,24 +11,60 @@ import XCTest
 
 class ReadShortURLInterpreterTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testReadInterpreterValidData() {
+        
+        var data: Data?
+        let response = HTTPURLResponse(url: URL(string: "test")!, statusCode: 200, httpVersion: nil, headerFields: nil)
+        let successStatusCode = 200
+        
+        let shortURLs = [ShortURL(id: 123, url: "testUrl1", shortUrl: "shortUrl1", creationDate: Date()),
+                         ShortURL(id: 234, url: "testUrl2", shortUrl: "shortUrl2", creationDate: Date()),
+                         ShortURL(id: 888, url: "testUrl3", shortUrl: "shortUrl3", creationDate: Date())]
+        
+        do {
+            data = try JSONEncoder().encode(shortURLs)
+        }
+        catch {
+            XCTFail()
+        }
+        
+        let readShortURLInterpreter = ReadShortURLInterpreter()
+        let resp = readShortURLInterpreter.interpret(data: data, response: response, error: nil, successStatusCode: successStatusCode)
+        switch resp {
+        case .success(let data):
+            XCTAssertEqual(data, shortURLs)
+        case .error(_):
+            XCTFail()
         }
     }
-
+    
+    func testReadInterpreterInvalidResponse() {
+        
+        let response = HTTPURLResponse(url: URL(string: "test")!, statusCode: 400, httpVersion: nil, headerFields: nil)
+        let successStatusCode = 400
+        let readShortURLInterpreter = ReadShortURLInterpreter()
+        let resp = readShortURLInterpreter.interpret(data: nil, response: response, error: nil, successStatusCode: successStatusCode)
+        switch resp {
+        case .success(_):
+            XCTFail()
+        case .error(let responseError):
+            XCTAssertEqual(responseError, ResponseError.invalidResponseError)
+        }
+    }
+    
+    func testReadInterpreterError() {
+        
+        let response = HTTPURLResponse()
+        let error = ResponseError.wrongUrlScheme
+        let successStatusCode = 400
+        
+        let readShortURLInterpreter = ReadShortURLInterpreter()
+        let resp = readShortURLInterpreter.interpret(data: nil, response: response, error: error, successStatusCode: successStatusCode)
+        switch resp {
+        case .success(_):
+            XCTFail()
+        case .error(let responseError):
+            XCTAssertEqual(responseError, ResponseError.wrongUrlScheme)
+        }
+    }
 }
