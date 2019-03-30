@@ -13,6 +13,7 @@ struct DeleteShortURLRequest: RequestProtocol {
     var id: Int
     
     // MARK: Request protocol
+
     var endpoint: String { return "http://url-shortener.com/api/short/" + "\(String(id))" }
     
     var httpMethod: HTTPMethod {

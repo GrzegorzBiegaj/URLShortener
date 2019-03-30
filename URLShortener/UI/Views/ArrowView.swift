@@ -14,6 +14,8 @@ protocol ArrowViewDelegate: class {
 
 class ArrowView: UIView {
 
+    // MARK: Public properties
+    
     weak var delegate: ArrowViewDelegate?
     
     var backgroundViewColor: UIColor = .white {
@@ -28,6 +30,8 @@ class ArrowView: UIView {
         }
     }
     
+    // MARK: Outlets
+    
     @IBOutlet weak var contentView: ArrowView!
     @IBOutlet weak var backgroundView: UIView! {
         didSet {
@@ -36,7 +40,6 @@ class ArrowView: UIView {
             backgroundView.backgroundColor = backgroundViewColor
         }
     }
-    
     @IBOutlet weak var arrowButton: UIButton! {
         didSet {
             let imageView = UIImageView()
@@ -46,9 +49,13 @@ class ArrowView: UIView {
         }
     }
     
+    // MARK: Actions
+    
     @IBAction func onButtonTap(_ sender: UIButton) {
         delegate?.onButtonTap(button: sender)
     }
+    
+    // MARK: UIView life cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,6 +65,8 @@ class ArrowView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // MARK: Private methods
     
     fileprivate func loadNib() {
         Bundle.main.loadNibNamed(String(describing: ArrowView.self), owner: self, options: nil)

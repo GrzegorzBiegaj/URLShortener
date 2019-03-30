@@ -14,8 +14,12 @@ protocol URLTableViewCellDelegate: class {
 
 class URLTableViewCell: UITableViewCell {
 
+    // MARK: Public properties
+    
     weak var delegate: URLTableViewCellDelegate?
     private var url: String?
+    
+    // MARK: Outlets
     
     @IBOutlet weak var roundedView: UIView! {
         didSet {
@@ -48,10 +52,14 @@ class URLTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: Actions
+    
     @IBAction func onUrlButtonTap(_ sender: UIButton) {
         guard let url = url else { return }
         delegate?.onUrlButtonTap(url: url)
     }
+    
+    // MARK: Public interface
     
     func configureCell(shortURL: ShortURL) {
         let dateFormatter = DateFormatter()

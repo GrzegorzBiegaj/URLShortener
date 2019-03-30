@@ -22,7 +22,7 @@ protocol RequestProtocol {
 }
 
 extension RequestProtocol {
-    // default parameters
+    // MARK: Default parameters
     
     // handling mocked URLSession requests
     var urlSession: URLSessionProtocol { return MockURLSession.shared }

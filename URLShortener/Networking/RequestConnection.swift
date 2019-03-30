@@ -16,9 +16,10 @@ protocol RequestConnectionProtocol {
 class RequestConnection: RequestConnectionProtocol {
     
     // MARK: Configuration
+
     let connectionTimeout = 10.0
     
-    // MARK: API
+    // MARK: Public interface
     
     func performRequest<Req: RequestProtocol>(request: Req, handler: @escaping (Response<Req.InterpreterType.SuccessType, Req.InterpreterType.ErrorType>) -> Void) {
         
@@ -37,7 +38,7 @@ class RequestConnection: RequestConnectionProtocol {
         task.resume()
     }
     
-    // MARK: Private
+    // MARK: private methods
     
     private func setupURLRequest<Req: RequestProtocol>(_ request: Req, url: URL) -> URLRequest? {
         
@@ -64,8 +65,6 @@ class RequestConnection: RequestConnectionProtocol {
         urlComponents?.queryItems = request.requestParameters?.map { return URLQueryItem(name: $0.key, value: "\($0.value)")}
         return urlComponents?.url
     }
-    
-    // MARK: private methods
     
     fileprivate func connectionLog<Req: RequestProtocol>(_ request: Req) {
         print("\(String(describing: type(of: request.urlSession))) connection: Request \(request.httpMethod.rawValue)")

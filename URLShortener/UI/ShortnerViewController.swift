@@ -10,6 +10,8 @@ import UIKit
 
 class ShortnerViewController: UITableViewController {
 
+    // MARK: Outlets
+    
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = "URL Shortener"
@@ -31,8 +33,12 @@ class ShortnerViewController: UITableViewController {
         }
     }
     
-    let shortURLrController = ShortURLController()
-    var model: [ShortURL] = [] { didSet { tableView.reloadData(with: .automatic) } }
+    // MARK: Private vars
+    
+    fileprivate let shortURLrController = ShortURLController()
+    fileprivate var model: [ShortURL] = [] { didSet { tableView.reloadData(with: .automatic) } }
+    
+    // MARK: View controller life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +46,16 @@ class ShortnerViewController: UITableViewController {
         getShortURLs()
     }
     
+    // MARK: Private methods
+    
     fileprivate func configureVC() {
         tableView.tableHeaderView?.backgroundColor = ShortenerColor.lightBlue.color
         hideKeyboardWhenTappedAround()
     }
     
-    func getShortURLs() {
+    // MARK: ShortURLController requests
+    
+    fileprivate func getShortURLs() {
         shortURLrController.getShortURLData { (response) in
             switch response {
             case .success(let shortURLs):
@@ -56,7 +66,7 @@ class ShortnerViewController: UITableViewController {
         }
     }
 
-    func addShortURL() {
+    fileprivate func addShortURL() {
         guard let text = urlTextField.text else { return }
         shortURLrController.storeShortURLData(url: text) { (response) in
             switch response {
@@ -69,7 +79,7 @@ class ShortnerViewController: UITableViewController {
         }
     }
     
-    func deleteShortURL(id: Int) {
+    fileprivate func deleteShortURL(id: Int) {
         shortURLrController.deleteShortURLData(id: id) { (response) in
             switch response {
             case .success(_):
@@ -79,6 +89,8 @@ class ShortnerViewController: UITableViewController {
             }
         }
     }
+    
+    // MARK: UITableView support
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.count
@@ -102,7 +114,6 @@ class ShortnerViewController: UITableViewController {
             deleteShortURL(id: model[indexPath.row].id)
         }
     }
-
 }
 
 // MARK: UITextFieldDelegate

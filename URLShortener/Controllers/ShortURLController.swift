@@ -16,6 +16,8 @@ class ShortURLController {
         self.connection = connection
     }
     
+    // MARK: Public interface
+    
     func getShortURLData(handler: @escaping (Response<[ShortURL], ResponseError>) -> ()) {
         let request = ReadShortURLRequest()
         connection.performRequest(request: request) { (response) in

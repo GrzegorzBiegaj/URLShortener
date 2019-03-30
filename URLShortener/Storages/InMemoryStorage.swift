@@ -29,6 +29,8 @@ class InMemoryStorage: InMemoryStorageProtocol {
     
     fileprivate var storage: [String: InMemoryStorable] = [:]
     
+    // MARK: Public interface
+    
     func store<T: InMemoryStorable>(_ model: T) {
         
         storage[T.inMemoryKey] = model
@@ -48,7 +50,7 @@ class InMemoryStorage: InMemoryStorageProtocol {
         storage.removeAll()
     }
     
-    // MARK: singleton
+    // MARK: Singleton
     
     static let sharedInstance = InMemoryStorage()
     
