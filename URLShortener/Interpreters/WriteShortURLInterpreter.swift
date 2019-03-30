@@ -1,5 +1,5 @@
 //
-//  WriteShortenerInterpreter.swift
+//  WriteShortURLInterpreter.swift
 //  URLShortener
 //
 //  Created by Grzegorz Biegaj on 28.03.19.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class WriteShortenerInterpreter: NetworkResponseInterpreter {
+class WriteShortURLInterpreter: NetworkResponseInterpreter {
     
-    func interpret(data: Data?, response: HTTPURLResponse?, error: Error?, successStatusCode: Int) -> Response<Shortener, ResponseError> {
+    func interpret(data: Data?, response: HTTPURLResponse?, error: Error?, successStatusCode: Int) -> Response<ShortURL, ResponseError> {
         
         guard response?.statusCode == successStatusCode else {
             return Response.error(ResponseError.invalidResponseError)
@@ -30,7 +30,7 @@ class WriteShortenerInterpreter: NetworkResponseInterpreter {
             }
         }
         guard let data = data else { return Response.error(ResponseError.invalidResponseError) }
-        guard let response = try? JSONDecoder().decode(Shortener.self, from: data) else {
+        guard let response = try? JSONDecoder().decode(ShortURL.self, from: data) else {
             return Response.error(ResponseError.decodeError)
         }
         return Response.success(response)

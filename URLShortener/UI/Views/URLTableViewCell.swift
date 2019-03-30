@@ -53,7 +53,7 @@ class URLTableViewCell: UITableViewCell {
         delegate?.onUrlButtonTap(url: url)
     }
     
-    func configureCell(shortener: Shortener) {
+    func configureCell(shortener: ShortURL) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         dateLabel.text = dateFormatter.string(from: shortener.creationDate)

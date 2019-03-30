@@ -28,5 +28,5 @@ struct WriteShortenerRequest: RequestProtocol {
         return ["url": url]
     }
     
-    let interpreter: WriteShortenerInterpreter = WriteShortenerInterpreter()
+    let interpreter: WriteShortURLInterpreter = WriteShortURLInterpreter()
 }

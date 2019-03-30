@@ -16,7 +16,7 @@ class ShortenerController {
         self.connection = connection
     }
     
-    func getShortenerData(handler: @escaping (Response<[Shortener], ResponseError>) -> ()) {
+    func getShortenerData(handler: @escaping (Response<[ShortURL], ResponseError>) -> ()) {
         let request = ReadShortenerRequest()
         connection.performRequest(request: request) { (response) in
             switch response {
@@ -28,7 +28,7 @@ class ShortenerController {
         }
     }
     
-    func storeShortenerData(url: String, handler: @escaping (Response<Shortener, ResponseError>) -> ()) {
+    func storeShortenerData(url: String, handler: @escaping (Response<ShortURL, ResponseError>) -> ()) {
         let request = WriteShortenerRequest(url: url)
         connection.performRequest(request: request) { (response) in
             switch response {

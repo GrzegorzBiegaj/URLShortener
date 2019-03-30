@@ -9,7 +9,7 @@
 import Foundation
 
 struct MockStorageShorteners {
-    var items: [Shortener]
+    var items: [ShortURL]
 }
 
 extension MockStorageShorteners: InMemoryStorable { }

@@ -83,7 +83,7 @@ class MockURLHandler {
     
     fileprivate func store(url: String) -> Data? {
         let shortUrl = makeShortUrl(url: url)
-        let shortener = Shortener(id: makeId(), url: url, shortUrl: shortUrl, creationDate: Date())
+        let shortener = ShortURL(id: makeId(), url: url, shortUrl: shortUrl, creationDate: Date())
         let localShorteners = getShorteners ?? MockStorageShorteners(items: [])
         storage.store(MockStorageShorteners(items: localShorteners.items + [shortener]))
         guard let resultData = try? JSONEncoder().encode(shortener) else { return nil }
@@ -99,10 +99,10 @@ class MockURLHandler {
         return storage.tryRestore()
     }
     
-    fileprivate var getSortedShorteners: [Shortener] {
+    fileprivate var getSortedShorteners: [ShortURL] {
         guard let items = getShorteners?.items else { return [] }
         let sorted = items.sorted(by: { $0.creationDate > $1.creationDate })
-        return sorted.map { Shortener(id: $0.id, url: $0.url, shortUrl: MockURLHandler.prefix + $0.shortUrl, creationDate: $0.creationDate) }
+        return sorted.map { ShortURL(id: $0.id, url: $0.url, shortUrl: MockURLHandler.prefix + $0.shortUrl, creationDate: $0.creationDate) }
     }
     
     // MARK: Private generate keys

@@ -18,5 +18,5 @@ struct ReadShortenerRequest: RequestProtocol {
         return ["Content-Type": "application/json"]
     }
 
-    let interpreter: ReadShortenerInterpreter = ReadShortenerInterpreter()
+    let interpreter: ReadShortURLInterpreter = ReadShortURLInterpreter()
 }

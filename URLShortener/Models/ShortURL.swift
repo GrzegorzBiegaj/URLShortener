@@ -1,6 +1,6 @@
 
 //
-//  Shortener.swift
+//  ShortURL.swift
 //  URLShortener
 //
 //  Created by Grzegorz Biegaj on 28.03.19.
@@ -9,7 +9,7 @@
 
 import Foundation
 
-struct Shortener: Codable {
+struct ShortURL: Codable {
     let id: Int
     let url: String
     let shortUrl: String

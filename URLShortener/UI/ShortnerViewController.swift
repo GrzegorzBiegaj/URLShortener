@@ -32,7 +32,7 @@ class ShortnerViewController: UITableViewController {
     }
     
     let shortenerController = ShortenerController()
-    var model: [Shortener] = [] { didSet { tableView.reloadData(with: .automatic) } }
+    var model: [ShortURL] = [] { didSet { tableView.reloadData(with: .automatic) } }
     
     override func viewDidLoad() {
         super.viewDidLoad()
