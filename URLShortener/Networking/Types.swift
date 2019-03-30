@@ -43,7 +43,7 @@ enum ResponseError: Error {
         case .decodeError: return "Data decode error"
         case .wrongUrlKey: return "Wrong URL key"
         case .noUrl: return "URL not found"
-        case .wrongUrlScheme: return "Wrong URL scheme, only http and https are supported"
+        case .wrongUrlScheme: return "Wrong URL scheme, only http and https schemes are supported"
         case .urlAlreadyExists: return "URL already exists"
         case .idNotFound: return "Short URL id not found"
         case .unknownError: return "Unknown error"

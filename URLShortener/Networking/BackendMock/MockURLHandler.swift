@@ -12,7 +12,8 @@ class MockURLHandler {
     
     // MARK: Configuration
     
-    fileprivate static let prefix = "https://url-shortener.com/"
+    fileprivate static let endpointURL = URL(string: "http://url-shortener.com/api/short")
+    fileprivate static let outputPrefixURL = URL(string: "https://url-shortener.com")!
     fileprivate static let schemes = ["http", "https"]
     
     fileprivate let storage = InMemoryStorage.sharedInstance
@@ -20,7 +21,7 @@ class MockURLHandler {
     // MARK: Public interface
     
     func handleData(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        var statusCode = 200
+        var statusCode = 400
         var error: Error?
         var data: Data?
         
@@ -28,19 +29,23 @@ class MockURLHandler {
         
         switch request.httpMethod {
         case HTTPMethod.get.rawValue:
-            data = restore()
+            statusCode = validateEndpoint(request: request) ? 200 : 400
+            if statusCode == 200 {
+                data = restore()
+            }
         case HTTPMethod.post.rawValue:
-            handlePost(request: request) { retData, retError in
+            handlePost(request: request) { retData, retError, retStatusCode in
                 data = retData
                 error = retError
+                statusCode = retStatusCode
             }
         case HTTPMethod.delete.rawValue:
-            handleDelete(request: request) { retData, retError in
+            handleDelete(request: request) { retData, retError, retStatusCode in
                 data = retData
                 error = retError
+                statusCode = retStatusCode
             }
         default:
-            statusCode = 400
             error = NSError(domain: "Invalid request", code: 150, userInfo: nil)
             break
         }
@@ -52,10 +57,13 @@ class MockURLHandler {
     
     // MARK: Handlers
     
-    fileprivate func handlePost(request: URLRequest, handler: (Data?, Error?) -> Void) {
+    fileprivate func handlePost(request: URLRequest, handler: (Data?, Error?, Int) -> Void) {
         var error: Error?
         var data: Data?
+        var statusCode = 400
         
+        if !validateEndpoint(request: request) { handler(data, error, statusCode); return }
+
         switch validateUrl(data: request.httpBody) {
         case .noUrl:
             error = NSError(domain: "URL not found", code: 100, userInfo: nil)
@@ -67,15 +75,19 @@ class MockURLHandler {
             error = NSError(domain: "URL already exists", code: 103, userInfo: nil)
         case .success(let url):
             data = store(url: url)
+            statusCode = 201
         default:
             error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
         }
-        handler(data, error)
+        handler(data, error, statusCode)
     }
     
-    fileprivate func handleDelete(request: URLRequest, handler: (Data?, Error?) -> Void) {
+    fileprivate func handleDelete(request: URLRequest, handler: (Data?, Error?, Int) -> Void) {
         var error: Error?
         var data: Data?
+        var statusCode = 400
+
+        if !validateDeleteEndpoint(request: request) { handler(data, error, statusCode); return }
         
         if let stringId = request.url?.lastPathComponent, let identifier = Int(stringId) {
             switch validateId(id: identifier) {
@@ -83,13 +95,14 @@ class MockURLHandler {
                 error = NSError(domain: "URL not found", code: 110, userInfo: nil)
             case .success(let identifier):
                 data = delete(id: identifier)
+                statusCode = 200
             default:
                 error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
             }
         } else {
             error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
         }
-        handler(data, error)
+        handler(data, error, statusCode)
     }
     
     // MARK: Private data validation
@@ -120,6 +133,20 @@ class MockURLHandler {
             return .success(item.id)
         }
         return .idNotFound
+    }
+    
+    fileprivate func validateEndpoint(request: URLRequest) -> Bool {
+        if let url = request.url, url.pathComponents == MockURLHandler.endpointURL?.pathComponents {
+            return true
+        }
+        return false
+    }
+
+    fileprivate func validateDeleteEndpoint(request: URLRequest) -> Bool {
+        if let url = request.url, url.deletingLastPathComponent().pathComponents ==  MockURLHandler.endpointURL?.pathComponents {
+            return true
+        }
+        return false
     }
     
     // MARK: Private store / restore / delete
@@ -158,7 +185,7 @@ class MockURLHandler {
     fileprivate var getSortedShortURLs: [ShortURL] {
         guard let items = getShortURLs?.items else { return [] }
         let sorted = items.sorted(by: { $0.creationDate > $1.creationDate })
-        return sorted.map { ShortURL(id: $0.id, url: $0.url, shortUrl: MockURLHandler.prefix + $0.shortUrl, creationDate: $0.creationDate) }
+        return sorted.map { ShortURL(id: $0.id, url: $0.url, shortUrl: MockURLHandler.outputPrefixURL.appendingPathComponent($0.shortUrl).absoluteString, creationDate: $0.creationDate) }
     }
     
     // MARK: Private generate keys

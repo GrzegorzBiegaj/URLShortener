@@ -28,5 +28,9 @@ struct WriteShortURLRequest: RequestProtocol {
         return ["url": url]
     }
     
+    var successStatusCode: Int {
+        return 201
+    }
+    
     let interpreter: WriteShortURLInterpreter = WriteShortURLInterpreter()
 }

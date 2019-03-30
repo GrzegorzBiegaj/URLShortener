@@ -51,7 +51,7 @@ class ShortnerViewController: UITableViewController {
             case .success(let shortURLs):
                 self.model = shortURLs
             case .error(let error):
-                print (error)
+                self.showOKAlert(withTitle: "Error", message: error.errorDescription, okButtonTitle: "OK")
             }
         }
     }
@@ -64,7 +64,7 @@ class ShortnerViewController: UITableViewController {
                 self.urlTextField.text = nil
                 self.getShortURLs()
             case .error(let error):
-                print (error)
+                self.showOKAlert(withTitle: "Error", message: error.errorDescription, okButtonTitle: "OK")
             }
         }
     }
@@ -75,7 +75,7 @@ class ShortnerViewController: UITableViewController {
             case .success(_):
                 self.getShortURLs()
             case .error(let error):
-                print (error)
+                self.showOKAlert(withTitle: "Error", message: error.errorDescription, okButtonTitle: "OK")
             }
         }
     }

@@ -12,9 +12,6 @@ class DeleteShortURLInterpreter: NetworkResponseInterpreter {
     
     func interpret(data: Data?, response: HTTPURLResponse?, error: Error?, successStatusCode: Int) -> Response<ShortURL, ResponseError> {
         
-        guard response?.statusCode == successStatusCode else {
-            return Response.error(ResponseError.invalidResponseError)
-        }
         if let error = error as NSError? {
             switch error.code {
             case 110:
@@ -22,6 +19,9 @@ class DeleteShortURLInterpreter: NetworkResponseInterpreter {
             default:
                 return Response.error(ResponseError.unknownError)
             }
+        }
+        guard response?.statusCode == successStatusCode else {
+            return Response.error(ResponseError.invalidResponseError)
         }
         guard let data = data else { return Response.error(ResponseError.invalidResponseError) }
         guard let response = try? JSONDecoder().decode(ShortURL.self, from: data) else {

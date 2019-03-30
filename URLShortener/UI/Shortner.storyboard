@@ -76,7 +76,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcI-4I-Orv">
-                                                    <rect key="frame" x="152.5" y="80" width="46" height="30"/>
+                                                    <rect key="frame" x="152.5" y="76" width="46" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
@@ -86,7 +86,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="AcI-4I-Orv" secondAttribute="bottom" constant="8" id="Dek-a7-zy7"/>
+                                                <constraint firstAttribute="bottom" secondItem="AcI-4I-Orv" secondAttribute="bottom" constant="12" id="Dek-a7-zy7"/>
                                                 <constraint firstItem="tK6-wX-wdJ" firstAttribute="top" secondItem="0sV-ED-0zC" secondAttribute="top" constant="8" id="ECP-Zb-fwS"/>
                                                 <constraint firstItem="jDm-c8-YHi" firstAttribute="top" secondItem="tK6-wX-wdJ" secondAttribute="bottom" constant="8" id="K14-N5-di9"/>
                                                 <constraint firstAttribute="trailing" secondItem="tK6-wX-wdJ" secondAttribute="trailing" constant="8" id="fFS-iF-IQf"/>

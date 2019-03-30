@@ -10,6 +10,7 @@
 		225C415C224F67B7004736F3 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415B224F67B7004736F3 /* UIImage+Scale.swift */; };
 		225C415E224F79B3004736F3 /* DeleteShortURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415D224F79B3004736F3 /* DeleteShortURLRequest.swift */; };
 		225C4160224F7B19004736F3 /* DeleteShortURLInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415F224F7B19004736F3 /* DeleteShortURLInterpreter.swift */; };
+		225C4162224FAB2B004736F3 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C4161224FAB2B004736F3 /* UIViewController+Alert.swift */; };
 		22FE04AD224EC1F90029DAE9 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04AC224EC1F90029DAE9 /* ArrowView.swift */; };
 		22FE04AF224EC22B0029DAE9 /* ArrowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE04AE224EC22B0029DAE9 /* ArrowView.xib */; };
 		22FE04B2224ED3100029DAE9 /* ShortenerColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04B1224ED3100029DAE9 /* ShortenerColorPalette.swift */; };
@@ -62,6 +63,7 @@
 		225C415B224F67B7004736F3 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		225C415D224F79B3004736F3 /* DeleteShortURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLRequest.swift; sourceTree = "<group>"; };
 		225C415F224F7B19004736F3 /* DeleteShortURLInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLInterpreter.swift; sourceTree = "<group>"; };
+		225C4161224FAB2B004736F3 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		22FE04AC224EC1F90029DAE9 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		22FE04AE224EC22B0029DAE9 /* ArrowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrowView.xib; sourceTree = "<group>"; };
 		22FE04B1224ED3100029DAE9 /* ShortenerColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenerColorPalette.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				22FE04B7224EDE740029DAE9 /* UIViewController+Keyboard.swift */,
 				22FE04BB224EEBB30029DAE9 /* UITableView+Animation.swift */,
 				225C415B224F67B7004736F3 /* UIImage+Scale.swift */,
+				225C4161224FAB2B004736F3 /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				22FE04B8224EDE740029DAE9 /* UIViewController+Keyboard.swift in Sources */,
 				22FE04AD224EC1F90029DAE9 /* ArrowView.swift in Sources */,
 				26E5A337224CAE6F003225D9 /* AppDelegate.swift in Sources */,
+				225C4162224FAB2B004736F3 /* UIViewController+Alert.swift in Sources */,
 				26E5A37D224CD565003225D9 /* ShortURL.swift in Sources */,
 				26E5A377224CD048003225D9 /* ReadShortURLRequest.swift in Sources */,
 			);
