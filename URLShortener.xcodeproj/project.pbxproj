@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225C415C224F67B7004736F3 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415B224F67B7004736F3 /* UIImage+Scale.swift */; };
 		22FE04AD224EC1F90029DAE9 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04AC224EC1F90029DAE9 /* ArrowView.swift */; };
 		22FE04AF224EC22B0029DAE9 /* ArrowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE04AE224EC22B0029DAE9 /* ArrowView.xib */; };
 		22FE04B2224ED3100029DAE9 /* ShortenerColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04B1224ED3100029DAE9 /* ShortenerColorPalette.swift */; };
 		22FE04B8224EDE740029DAE9 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04B7224EDE740029DAE9 /* UIViewController+Keyboard.swift */; };
+		22FE04BA224EE4A80029DAE9 /* URLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04B9224EE4A80029DAE9 /* URLTableViewCell.swift */; };
+		22FE04BC224EEBB30029DAE9 /* UITableView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04BB224EEBB30029DAE9 /* UITableView+Animation.swift */; };
 		26E5A337224CAE6F003225D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A336224CAE6F003225D9 /* AppDelegate.swift */; };
 		26E5A33E224CAE71003225D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A33D224CAE71003225D9 /* Assets.xcassets */; };
 		26E5A341224CAE71003225D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A33F224CAE71003225D9 /* LaunchScreen.storyboard */; };
@@ -54,10 +57,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		225C415B224F67B7004736F3 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		22FE04AC224EC1F90029DAE9 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		22FE04AE224EC22B0029DAE9 /* ArrowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrowView.xib; sourceTree = "<group>"; };
 		22FE04B1224ED3100029DAE9 /* ShortenerColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenerColorPalette.swift; sourceTree = "<group>"; };
 		22FE04B7224EDE740029DAE9 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		22FE04B9224EE4A80029DAE9 /* URLTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTableViewCell.swift; sourceTree = "<group>"; };
+		22FE04BB224EEBB30029DAE9 /* UITableView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Animation.swift"; sourceTree = "<group>"; };
 		26E5A333224CAE6F003225D9 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E5A336224CAE6F003225D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26E5A33D224CAE71003225D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				22FE04AC224EC1F90029DAE9 /* ArrowView.swift */,
+				22FE04B9224EE4A80029DAE9 /* URLTableViewCell.swift */,
 				22FE04AE224EC22B0029DAE9 /* ArrowView.xib */,
 			);
 			path = Views;
@@ -135,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				22FE04B7224EDE740029DAE9 /* UIViewController+Keyboard.swift */,
+				22FE04BB224EEBB30029DAE9 /* UITableView+Animation.swift */,
+				225C415B224F67B7004736F3 /* UIImage+Scale.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,12 +420,15 @@
 				26E5A391224E411F003225D9 /* MockStorage.swift in Sources */,
 				26E5A371224CCFDF003225D9 /* InterpreterProtocol.swift in Sources */,
 				26E5A388224CF52B003225D9 /* MockURLHandler.swift in Sources */,
+				225C415C224F67B7004736F3 /* UIImage+Scale.swift in Sources */,
 				26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */,
+				22FE04BC224EEBB30029DAE9 /* UITableView+Animation.swift in Sources */,
 				26E5A38F224E0034003225D9 /* InMemoryStorage.swift in Sources */,
 				26E5A37B224CD072003225D9 /* ShortenerController.swift in Sources */,
 				26E5A379224CD064003225D9 /* ReadShortenerInterpreter.swift in Sources */,
 				26E5A375224CD004003225D9 /* RequestProtocol.swift in Sources */,
 				22FE04B2224ED3100029DAE9 /* ShortenerColorPalette.swift in Sources */,
+				22FE04BA224EE4A80029DAE9 /* URLTableViewCell.swift in Sources */,
 				26E5A381224CD8F1003225D9 /* WriteShortenerInterpreter.swift in Sources */,
 				26E5A38A224D0BBC003225D9 /* ShortnerViewController.swift in Sources */,
 				26E5A384224CE0BA003225D9 /* URLSessionProtocol.swift in Sources */,

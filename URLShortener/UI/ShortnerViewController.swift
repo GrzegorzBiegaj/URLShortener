@@ -13,7 +13,7 @@ class ShortnerViewController: UITableViewController {
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = "URL Shortener"
-            titleLabel.textColor = ShortenerColor.darkBlue.color
+            titleLabel.textColor = ShortenerColor.blue.color
         }
     }
 
@@ -32,7 +32,7 @@ class ShortnerViewController: UITableViewController {
     }
     
     let shortenerController = ShortenerController()
-    var model: [Shortener] = [] { didSet { tableView.reloadData() } }
+    var model: [Shortener] = [] { didSet { tableView.reloadData(with: .automatic) } }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class ShortnerViewController: UITableViewController {
     }
     
     fileprivate func configureVC() {
-        tableView.tableHeaderView?.backgroundColor = ShortenerColor.blue.color
+        tableView.tableHeaderView?.backgroundColor = ShortenerColor.lightBlue.color
         hideKeyboardWhenTappedAround()
     }
     
@@ -74,8 +74,10 @@ class ShortnerViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShortRI", for: indexPath)
-        cell.textLabel?.text = model[indexPath.row].url
-        cell.detailTextLabel?.text = model[indexPath.row].shortUrl
+        if let cell = cell as? URLTableViewCell {
+            cell.configureCell(shortener: model[indexPath.row])
+            cell.delegate = self
+        }
         return cell
     }
 
@@ -98,5 +100,15 @@ extension ShortnerViewController: ArrowViewDelegate {
 
     func onButtonTap(button: UIButton) {
         addShortener()
+    }
+}
+
+// MARK: URLTableViewCellDelegate
+
+extension ShortnerViewController: URLTableViewCellDelegate {
+
+    func onUrlButtonTap(url: String) {
+        guard let url = URL(string: url) else { return }
+        UIApplication.shared.open(url, options: [:])
     }
 }
