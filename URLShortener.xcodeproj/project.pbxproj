@@ -18,6 +18,9 @@
 		225C4194224FEA72004736F3 /* ReadShortURLInterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C4193224FEA72004736F3 /* ReadShortURLInterpreterTests.swift */; };
 		225C419A224FEAAB004736F3 /* WriteShortURLInterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C4199224FEAAB004736F3 /* WriteShortURLInterpreterTests.swift */; };
 		225C419C22500F78004736F3 /* DeleteShortURLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C419B22500F78004736F3 /* DeleteShortURLRequestTests.swift */; };
+		225C419E22501EE1004736F3 /* URLSessionTestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C419D22501EE1004736F3 /* URLSessionTestMock.swift */; };
+		225C41A322502237004736F3 /* RequestConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C41A222502237004736F3 /* RequestConnectionTests.swift */; };
+		225C41A5225022B6004736F3 /* URLRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C41A4225022B6004736F3 /* URLRequestMock.swift */; };
 		22FE04AD224EC1F90029DAE9 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04AC224EC1F90029DAE9 /* ArrowView.swift */; };
 		22FE04AF224EC22B0029DAE9 /* ArrowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE04AE224EC22B0029DAE9 /* ArrowView.xib */; };
 		22FE04B2224ED3100029DAE9 /* ShortenerColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04B1224ED3100029DAE9 /* ShortenerColorPalette.swift */; };
@@ -77,6 +80,9 @@
 		225C4193224FEA72004736F3 /* ReadShortURLInterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadShortURLInterpreterTests.swift; sourceTree = "<group>"; };
 		225C4199224FEAAB004736F3 /* WriteShortURLInterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteShortURLInterpreterTests.swift; sourceTree = "<group>"; };
 		225C419B22500F78004736F3 /* DeleteShortURLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLRequestTests.swift; sourceTree = "<group>"; };
+		225C419D22501EE1004736F3 /* URLSessionTestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTestMock.swift; sourceTree = "<group>"; };
+		225C41A222502237004736F3 /* RequestConnectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConnectionTests.swift; sourceTree = "<group>"; };
+		225C41A4225022B6004736F3 /* URLRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestMock.swift; sourceTree = "<group>"; };
 		22FE04AC224EC1F90029DAE9 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		22FE04AE224EC22B0029DAE9 /* ArrowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrowView.xib; sourceTree = "<group>"; };
 		22FE04B1224ED3100029DAE9 /* ShortenerColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenerColorPalette.swift; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				225C416A224FE5F2004736F3 /* NetworkingMock.swift */,
+				225C419D22501EE1004736F3 /* URLSessionTestMock.swift */,
+				225C41A4225022B6004736F3 /* URLRequestMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -179,6 +187,14 @@
 				225C4199224FEAAB004736F3 /* WriteShortURLInterpreterTests.swift */,
 			);
 			path = Interpreters;
+			sourceTree = "<group>";
+		};
+		225C419F225021F8004736F3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				225C41A222502237004736F3 /* RequestConnectionTests.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		22FE04AB224EC1700029DAE9 /* Views */ = {
@@ -259,6 +275,7 @@
 				225C416F224FE6E7004736F3 /* Requests */,
 				225C4192224FEA52004736F3 /* Interpreters */,
 				225C4170224FE708004736F3 /* Models */,
+				225C419F225021F8004736F3 /* Networking */,
 				26E5A34D224CAE72003225D9 /* Info.plist */,
 			);
 			path = URLShortenerTests;
@@ -517,9 +534,12 @@
 				225C418C224FE9A3004736F3 /* ReadShortURLRequestTests.swift in Sources */,
 				225C4178224FE77B004736F3 /* ShortURLTests.swift in Sources */,
 				225C419C22500F78004736F3 /* DeleteShortURLRequestTests.swift in Sources */,
+				225C419E22501EE1004736F3 /* URLSessionTestMock.swift in Sources */,
 				225C4194224FEA72004736F3 /* ReadShortURLInterpreterTests.swift in Sources */,
 				225C416B224FE5F2004736F3 /* NetworkingMock.swift in Sources */,
+				225C41A5225022B6004736F3 /* URLRequestMock.swift in Sources */,
 				225C4180224FE848004736F3 /* ShortURLControllerTests.swift in Sources */,
+				225C41A322502237004736F3 /* RequestConnectionTests.swift in Sources */,
 				225C418E224FE9D9004736F3 /* WriteShortURLRequestTests.swift in Sources */,
 				225C419A224FEAAB004736F3 /* WriteShortURLInterpreterTests.swift in Sources */,
 			);
