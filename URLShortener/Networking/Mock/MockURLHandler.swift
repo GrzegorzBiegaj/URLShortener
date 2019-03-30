@@ -29,35 +29,15 @@ class MockURLHandler {
         switch request.httpMethod {
         case HTTPMethod.get.rawValue:
             data = restore()
-
         case HTTPMethod.post.rawValue:
-            switch validateUrl(data: request.httpBody) {
-            case .noUrl:
-                error = NSError(domain: "URL not found", code: 100, userInfo: nil)
-            case .wrongUrlKey:
-                error = NSError(domain: "Wrong URL key", code: 101, userInfo: nil)
-            case .wrongUrlScheme:
-                error = NSError(domain: "Wrong URL scheme, only http and https are supported", code: 102, userInfo: nil)
-            case .urlAlreadyExists:
-                error = NSError(domain: "URL already exists", code: 103, userInfo: nil)
-            case .success(let url):
-                data = store(url: url)
-            default:
-                error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+            handlePost(request: request) { retData, retError in
+                data = retData
+                error = retError
             }
-
         case HTTPMethod.delete.rawValue:
-            if let stringId = request.url?.lastPathComponent, let identifier = Int(stringId) {
-                switch validateId(id: identifier) {
-                case .idNotFound:
-                    error = NSError(domain: "URL not found", code: 110, userInfo: nil)
-                case .success(let identifier):
-                    data = delete(id: identifier)
-                default:
-                    error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
-                }
-            } else {
-                error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+            handleDelete(request: request) { retData, retError in
+                data = retData
+                error = retError
             }
         default:
             statusCode = 400
@@ -68,6 +48,48 @@ class MockURLHandler {
         let response = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil, headerFields: request.allHTTPHeaderFields)
         
         completionHandler(data, response, error)
+    }
+    
+    // MARK: Handlers
+    
+    fileprivate func handlePost(request: URLRequest, handler: (Data?, Error?) -> Void) {
+        var error: Error?
+        var data: Data?
+        
+        switch validateUrl(data: request.httpBody) {
+        case .noUrl:
+            error = NSError(domain: "URL not found", code: 100, userInfo: nil)
+        case .wrongUrlKey:
+            error = NSError(domain: "Wrong URL key", code: 101, userInfo: nil)
+        case .wrongUrlScheme:
+            error = NSError(domain: "Wrong URL scheme, only http and https are supported", code: 102, userInfo: nil)
+        case .urlAlreadyExists:
+            error = NSError(domain: "URL already exists", code: 103, userInfo: nil)
+        case .success(let url):
+            data = store(url: url)
+        default:
+            error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+        }
+        handler(data, error)
+    }
+    
+    fileprivate func handleDelete(request: URLRequest, handler: (Data?, Error?) -> Void) {
+        var error: Error?
+        var data: Data?
+        
+        if let stringId = request.url?.lastPathComponent, let identifier = Int(stringId) {
+            switch validateId(id: identifier) {
+            case .idNotFound:
+                error = NSError(domain: "URL not found", code: 110, userInfo: nil)
+            case .success(let identifier):
+                data = delete(id: identifier)
+            default:
+                error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+            }
+        } else {
+            error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+        }
+        handler(data, error)
     }
     
     // MARK: Private data validation
