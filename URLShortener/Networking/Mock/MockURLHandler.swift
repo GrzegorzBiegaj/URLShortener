@@ -83,7 +83,7 @@ class MockURLHandler {
     
     fileprivate func store(url: String) -> Data? {
         let shortUrl = makeShortUrl(url: url)
-        let shortener = Shortener(id: makeId, url: url, shortUrl: shortUrl, creationDate: Date())
+        let shortener = Shortener(id: makeId(), url: url, shortUrl: shortUrl, creationDate: Date())
         let localShorteners = getShorteners ?? MockStorageShorteners(items: [])
         storage.store(MockStorageShorteners(items: localShorteners.items + [shortener]))
         guard let resultData = try? JSONEncoder().encode(shortener) else { return nil }
@@ -107,13 +107,24 @@ class MockURLHandler {
     
     // MARK: Private generate keys
     
-    fileprivate var makeId: Int {
-        return UUID().hashValue
+    fileprivate func makeId() -> Int {
+        var identifier = UUID().hashValue
+        let localShorteners = getShorteners ?? MockStorageShorteners(items: [])
+        let duplicate = localShorteners.items.first { $0.id == identifier }
+        if let _ = duplicate {
+            identifier = makeId()
+        }
+        return identifier
     }
-    
+ 
     fileprivate func makeShortUrl(url: String) -> String {
-        let unicodeScalars = url.unicodeScalars.map { Int($0.value) }
-        let value = unicodeScalars.reduce(0, +)
-        return String(value)
+        let base: UInt32 = 1000000000
+        var short = String(UInt64(arc4random_uniform(base)))
+        let localShorteners = getShorteners ?? MockStorageShorteners(items: [])
+        let duplicate = localShorteners.items.first { $0.shortUrl == short }
+        if let _ = duplicate {
+            short = makeShortUrl(url: url)
+        }
+        return short
     }
 }

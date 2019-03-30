@@ -61,6 +61,7 @@ class ShortnerViewController: UITableViewController {
         shortenerController.storeShortenerData(url: text) { (response) in
             switch response {
             case .success(_):
+                self.urlTextField.text = nil
                 self.getShorteners()
             case .error(let error):
                 print (error)
