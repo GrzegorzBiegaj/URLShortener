@@ -1,5 +1,5 @@
 //
-//  ShortenerController.swift
+//  ShortURLController.swift
 //  URLShortener
 //
 //  Created by Grzegorz Biegaj on 28.03.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ShortenerController {
+class ShortURLController {
     
     var connection: RequestConnectionProtocol
     
@@ -16,36 +16,36 @@ class ShortenerController {
         self.connection = connection
     }
     
-    func getShortenerData(handler: @escaping (Response<[ShortURL], ResponseError>) -> ()) {
-        let request = ReadShortenerRequest()
+    func getShortURLData(handler: @escaping (Response<[ShortURL], ResponseError>) -> ()) {
+        let request = ReadShortURLRequest()
         connection.performRequest(request: request) { (response) in
             switch response {
-            case .success(let shorteners):
-                handler(.success(shorteners))
+            case .success(let shortURLs):
+                handler(.success(shortURLs))
             case .error(let error):
                 handler(.error(error))
             }
         }
     }
     
-    func storeShortenerData(url: String, handler: @escaping (Response<ShortURL, ResponseError>) -> ()) {
-        let request = WriteShortenerRequest(url: url)
+    func storeShortURLData(url: String, handler: @escaping (Response<ShortURL, ResponseError>) -> ()) {
+        let request = WriteShortURLRequest(url: url)
         connection.performRequest(request: request) { (response) in
             switch response {
-            case .success(let shortener):
-                handler(.success(shortener))
+            case .success(let shortURL):
+                handler(.success(shortURL))
             case .error(let error):
                 handler(.error(error))
             }
         }
     }
     
-    func deleteShortenerData(id: Int, handler: @escaping (Response<ShortURL, ResponseError>) -> ()) {
-        let request = DeleteShortenerRequest(id: id)
+    func deleteShortURLData(id: Int, handler: @escaping (Response<ShortURL, ResponseError>) -> ()) {
+        let request = DeleteShortURLRequest(id: id)
         connection.performRequest(request: request) { (response) in
             switch response {
-            case .success(let shortener):
-                handler(.success(shortener))
+            case .success(let shortURL):
+                handler(.success(shortURL))
             case .error(let error):
                 handler(.error(error))
             }

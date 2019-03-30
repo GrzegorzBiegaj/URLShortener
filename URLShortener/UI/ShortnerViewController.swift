@@ -31,13 +31,13 @@ class ShortnerViewController: UITableViewController {
         }
     }
     
-    let shortenerController = ShortenerController()
+    let shortURLrController = ShortURLController()
     var model: [ShortURL] = [] { didSet { tableView.reloadData(with: .automatic) } }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
-        getShorteners()
+        getShortURLs()
     }
     
     fileprivate func configureVC() {
@@ -45,35 +45,35 @@ class ShortnerViewController: UITableViewController {
         hideKeyboardWhenTappedAround()
     }
     
-    func getShorteners() {
-        shortenerController.getShortenerData { (response) in
+    func getShortURLs() {
+        shortURLrController.getShortURLData { (response) in
             switch response {
-            case .success(let shorteners):
-                self.model = shorteners
+            case .success(let shortURLs):
+                self.model = shortURLs
             case .error(let error):
                 print (error)
             }
         }
     }
 
-    func addShortener() {
+    func addShortURL() {
         guard let text = urlTextField.text else { return }
-        shortenerController.storeShortenerData(url: text) { (response) in
+        shortURLrController.storeShortURLData(url: text) { (response) in
             switch response {
             case .success(_):
                 self.urlTextField.text = nil
-                self.getShorteners()
+                self.getShortURLs()
             case .error(let error):
                 print (error)
             }
         }
     }
     
-    func deleteShortener(id: Int) {
-        shortenerController.deleteShortenerData(id: id) { (response) in
+    func deleteShortURL(id: Int) {
+        shortURLrController.deleteShortURLData(id: id) { (response) in
             switch response {
             case .success(_):
-                self.getShorteners()
+                self.getShortURLs()
             case .error(let error):
                 print (error)
             }
@@ -87,7 +87,7 @@ class ShortnerViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShortRI", for: indexPath)
         if let cell = cell as? URLTableViewCell {
-            cell.configureCell(shortener: model[indexPath.row])
+            cell.configureCell(shortURL: model[indexPath.row])
             cell.delegate = self
         }
         return cell
@@ -99,7 +99,7 @@ class ShortnerViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            deleteShortener(id: model[indexPath.row].id)
+            deleteShortURL(id: model[indexPath.row].id)
         }
     }
 
@@ -111,7 +111,7 @@ extension ShortnerViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        addShortener()
+        addShortURL()
         return true
     }
 }
@@ -121,7 +121,7 @@ extension ShortnerViewController: UITextFieldDelegate {
 extension ShortnerViewController: ArrowViewDelegate {
 
     func onButtonTap(button: UIButton) {
-        addShortener()
+        addShortURL()
     }
 }
 

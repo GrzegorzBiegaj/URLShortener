@@ -1,5 +1,5 @@
 //
-//  ReadShortenerRequest.swift
+//  ReadShortURLRequest.swift
 //  URLShortener
 //
 //  Created by Grzegorz Biegaj on 28.03.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ReadShortenerRequest: RequestProtocol {
+struct ReadShortURLRequest: RequestProtocol {
     
     // MARK: Request protocol
     

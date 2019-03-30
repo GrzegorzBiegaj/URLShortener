@@ -1,5 +1,5 @@
 //
-//  DeleteShortenerRequest.swift
+//  DeleteShortURLRequest.swift
 //  URLShortener
 //
 //  Created by Grzesiek on 30/03/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DeleteShortenerRequest: RequestProtocol {
+struct DeleteShortURLRequest: RequestProtocol {
     
     var id: Int
     

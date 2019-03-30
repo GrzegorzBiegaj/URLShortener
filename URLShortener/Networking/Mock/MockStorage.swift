@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct MockStorageShorteners {
+struct MockStorageShortURLs {
     var items: [ShortURL]
 }
 
-extension MockStorageShorteners: InMemoryStorable { }
+extension MockStorageShortURLs: InMemoryStorable { }

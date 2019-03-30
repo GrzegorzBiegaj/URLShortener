@@ -53,13 +53,13 @@ class URLTableViewCell: UITableViewCell {
         delegate?.onUrlButtonTap(url: url)
     }
     
-    func configureCell(shortener: ShortURL) {
+    func configureCell(shortURL: ShortURL) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        dateLabel.text = dateFormatter.string(from: shortener.creationDate)
-        urlLabel.text = shortener.url
-        shortURLButton.setTitle(shortener.shortUrl, for: .normal)
-        url = shortener.shortUrl
+        dateLabel.text = dateFormatter.string(from: shortURL.creationDate)
+        urlLabel.text = shortURL.url
+        shortURLButton.setTitle(shortURL.shortUrl, for: .normal)
+        url = shortURL.shortUrl
     }
 
 }

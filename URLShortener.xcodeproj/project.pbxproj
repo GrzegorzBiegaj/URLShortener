@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		225C415C224F67B7004736F3 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415B224F67B7004736F3 /* UIImage+Scale.swift */; };
-		225C415E224F79B3004736F3 /* DeleteShortenerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415D224F79B3004736F3 /* DeleteShortenerRequest.swift */; };
+		225C415E224F79B3004736F3 /* DeleteShortURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415D224F79B3004736F3 /* DeleteShortURLRequest.swift */; };
 		225C4160224F7B19004736F3 /* DeleteShortURLInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415F224F7B19004736F3 /* DeleteShortURLInterpreter.swift */; };
 		22FE04AD224EC1F90029DAE9 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE04AC224EC1F90029DAE9 /* ArrowView.swift */; };
 		22FE04AF224EC22B0029DAE9 /* ArrowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE04AE224EC22B0029DAE9 /* ArrowView.xib */; };
@@ -26,11 +26,11 @@
 		26E5A371224CCFDF003225D9 /* InterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A370224CCFDF003225D9 /* InterpreterProtocol.swift */; };
 		26E5A373224CCFEF003225D9 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A372224CCFEF003225D9 /* Types.swift */; };
 		26E5A375224CD004003225D9 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A374224CD004003225D9 /* RequestProtocol.swift */; };
-		26E5A377224CD048003225D9 /* ReadShortenerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A376224CD048003225D9 /* ReadShortenerRequest.swift */; };
+		26E5A377224CD048003225D9 /* ReadShortURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A376224CD048003225D9 /* ReadShortURLRequest.swift */; };
 		26E5A379224CD064003225D9 /* ReadShortURLInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A378224CD064003225D9 /* ReadShortURLInterpreter.swift */; };
-		26E5A37B224CD072003225D9 /* ShortenerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A37A224CD072003225D9 /* ShortenerController.swift */; };
+		26E5A37B224CD072003225D9 /* ShortURLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A37A224CD072003225D9 /* ShortURLController.swift */; };
 		26E5A37D224CD565003225D9 /* ShortURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A37C224CD565003225D9 /* ShortURL.swift */; };
-		26E5A37F224CD830003225D9 /* WriteShortenerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A37E224CD830003225D9 /* WriteShortenerRequest.swift */; };
+		26E5A37F224CD830003225D9 /* WriteShortURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A37E224CD830003225D9 /* WriteShortURLRequest.swift */; };
 		26E5A381224CD8F1003225D9 /* WriteShortURLInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A380224CD8F1003225D9 /* WriteShortURLInterpreter.swift */; };
 		26E5A384224CE0BA003225D9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */; };
 		26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5A385224CE1A0003225D9 /* MockURLSession.swift */; };
@@ -60,7 +60,7 @@
 
 /* Begin PBXFileReference section */
 		225C415B224F67B7004736F3 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
-		225C415D224F79B3004736F3 /* DeleteShortenerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortenerRequest.swift; sourceTree = "<group>"; };
+		225C415D224F79B3004736F3 /* DeleteShortURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLRequest.swift; sourceTree = "<group>"; };
 		225C415F224F7B19004736F3 /* DeleteShortURLInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLInterpreter.swift; sourceTree = "<group>"; };
 		22FE04AC224EC1F90029DAE9 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		22FE04AE224EC22B0029DAE9 /* ArrowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrowView.xib; sourceTree = "<group>"; };
@@ -84,11 +84,11 @@
 		26E5A370224CCFDF003225D9 /* InterpreterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterProtocol.swift; sourceTree = "<group>"; };
 		26E5A372224CCFEF003225D9 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		26E5A374224CD004003225D9 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
-		26E5A376224CD048003225D9 /* ReadShortenerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadShortenerRequest.swift; sourceTree = "<group>"; };
+		26E5A376224CD048003225D9 /* ReadShortURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadShortURLRequest.swift; sourceTree = "<group>"; };
 		26E5A378224CD064003225D9 /* ReadShortURLInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadShortURLInterpreter.swift; sourceTree = "<group>"; };
-		26E5A37A224CD072003225D9 /* ShortenerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenerController.swift; sourceTree = "<group>"; };
+		26E5A37A224CD072003225D9 /* ShortURLController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortURLController.swift; sourceTree = "<group>"; };
 		26E5A37C224CD565003225D9 /* ShortURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortURL.swift; sourceTree = "<group>"; };
-		26E5A37E224CD830003225D9 /* WriteShortenerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteShortenerRequest.swift; sourceTree = "<group>"; };
+		26E5A37E224CD830003225D9 /* WriteShortURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteShortURLRequest.swift; sourceTree = "<group>"; };
 		26E5A380224CD8F1003225D9 /* WriteShortURLInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteShortURLInterpreter.swift; sourceTree = "<group>"; };
 		26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		26E5A385224CE1A0003225D9 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 		26E5A367224CB24B003225D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				26E5A37A224CD072003225D9 /* ShortenerController.swift */,
+				26E5A37A224CD072003225D9 /* ShortURLController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -232,9 +232,9 @@
 		26E5A368224CB257003225D9 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				26E5A376224CD048003225D9 /* ReadShortenerRequest.swift */,
-				26E5A37E224CD830003225D9 /* WriteShortenerRequest.swift */,
-				225C415D224F79B3004736F3 /* DeleteShortenerRequest.swift */,
+				26E5A376224CD048003225D9 /* ReadShortURLRequest.swift */,
+				26E5A37E224CD830003225D9 /* WriteShortURLRequest.swift */,
+				225C415D224F79B3004736F3 /* DeleteShortURLRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26E5A36F224CCFD1003225D9 /* RequestConnection.swift in Sources */,
-				26E5A37F224CD830003225D9 /* WriteShortenerRequest.swift in Sources */,
+				26E5A37F224CD830003225D9 /* WriteShortURLRequest.swift in Sources */,
 				26E5A391224E411F003225D9 /* MockStorage.swift in Sources */,
 				26E5A371224CCFDF003225D9 /* InterpreterProtocol.swift in Sources */,
 				225C4160224F7B19004736F3 /* DeleteShortURLInterpreter.swift in Sources */,
@@ -431,11 +431,11 @@
 				26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */,
 				22FE04BC224EEBB30029DAE9 /* UITableView+Animation.swift in Sources */,
 				26E5A38F224E0034003225D9 /* InMemoryStorage.swift in Sources */,
-				26E5A37B224CD072003225D9 /* ShortenerController.swift in Sources */,
+				26E5A37B224CD072003225D9 /* ShortURLController.swift in Sources */,
 				26E5A379224CD064003225D9 /* ReadShortURLInterpreter.swift in Sources */,
 				26E5A375224CD004003225D9 /* RequestProtocol.swift in Sources */,
 				22FE04B2224ED3100029DAE9 /* ShortenerColorPalette.swift in Sources */,
-				225C415E224F79B3004736F3 /* DeleteShortenerRequest.swift in Sources */,
+				225C415E224F79B3004736F3 /* DeleteShortURLRequest.swift in Sources */,
 				22FE04BA224EE4A80029DAE9 /* URLTableViewCell.swift in Sources */,
 				26E5A381224CD8F1003225D9 /* WriteShortURLInterpreter.swift in Sources */,
 				26E5A38A224D0BBC003225D9 /* ShortnerViewController.swift in Sources */,
@@ -445,7 +445,7 @@
 				22FE04AD224EC1F90029DAE9 /* ArrowView.swift in Sources */,
 				26E5A337224CAE6F003225D9 /* AppDelegate.swift in Sources */,
 				26E5A37D224CD565003225D9 /* ShortURL.swift in Sources */,
-				26E5A377224CD048003225D9 /* ReadShortenerRequest.swift in Sources */,
+				26E5A377224CD048003225D9 /* ReadShortURLRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

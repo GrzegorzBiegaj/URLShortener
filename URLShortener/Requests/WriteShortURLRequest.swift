@@ -1,5 +1,5 @@
 //
-//  WriteShortenerRequest.swift
+//  WriteShortURLRequest.swift
 //  URLShortener
 //
 //  Created by Grzegorz Biegaj on 28.03.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WriteShortenerRequest: RequestProtocol {
+struct WriteShortURLRequest: RequestProtocol {
     
     let url: String
     
