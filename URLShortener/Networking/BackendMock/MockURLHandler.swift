@@ -185,7 +185,14 @@ class MockURLHandler {
     fileprivate var getSortedShortURLs: [ShortURL] {
         guard let items = getShortURLs?.items else { return [] }
         let sorted = items.sorted(by: { $0.creationDate > $1.creationDate })
-        return sorted.map { ShortURL(id: $0.id, url: $0.url, shortUrl: MockURLHandler.outputPrefixURL.appendingPathComponent($0.shortUrl).absoluteString, creationDate: $0.creationDate) }
+        return sorted.map {
+            let url = MockURLHandler.outputPrefixURL.appendingPathComponent($0.shortUrl)
+            var components = URLComponents()
+            components.scheme = URL(string: $0.url)?.scheme
+            components.host = url.host
+            components.path = url.path
+            let newUrl = components.url ?? url
+            return ShortURL(id: $0.id, url: $0.url, shortUrl: newUrl.absoluteString, creationDate: $0.creationDate) }
     }
     
     // MARK: Private generate keys
