@@ -256,7 +256,7 @@
 				26E5A374224CD004003225D9 /* RequestProtocol.swift */,
 				26E5A370224CCFDF003225D9 /* InterpreterProtocol.swift */,
 				26E5A372224CCFEF003225D9 /* Types.swift */,
-				26E5A382224CE07A003225D9 /* Mock */,
+				26E5A382224CE07A003225D9 /* BackendMock */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		26E5A382224CE07A003225D9 /* Mock */ = {
+		26E5A382224CE07A003225D9 /* BackendMock */ = {
 			isa = PBXGroup;
 			children = (
 				26E5A383224CE0BA003225D9 /* URLSessionProtocol.swift */,
@@ -277,7 +277,7 @@
 				26E5A387224CF52B003225D9 /* MockURLHandler.swift */,
 				26E5A390224E411F003225D9 /* MockStorage.swift */,
 			);
-			path = Mock;
+			path = BackendMock;
 			sourceTree = "<group>";
 		};
 		26E5A38D224E0029003225D9 /* Storages */ = {
