@@ -46,7 +46,7 @@ class MockURLHandler {
                 statusCode = retStatusCode
             }
         default:
-            error = NSError(domain: "Invalid request", code: 150, userInfo: nil)
+            error = ResponseError.invalidResponseError
             break
         }
         
@@ -65,19 +65,15 @@ class MockURLHandler {
         if !validateEndpoint(request: request) { handler(data, error, statusCode); return }
 
         switch validateUrl(data: request.httpBody) {
-        case .noUrl:
-            error = NSError(domain: "URL not found", code: 100, userInfo: nil)
-        case .wrongUrlKey:
-            error = NSError(domain: "Wrong URL key", code: 101, userInfo: nil)
-        case .wrongUrlScheme:
-            error = NSError(domain: "Wrong URL scheme, only http and https are supported", code: 102, userInfo: nil)
-        case .urlAlreadyExists:
-            error = NSError(domain: "URL already exists", code: 103, userInfo: nil)
+        case .noUrl: error = ResponseError.noUrl
+        case .wrongUrlKey: error = ResponseError.wrongUrlKey
+        case .wrongUrlScheme: error = ResponseError.wrongUrlScheme
+        case .urlAlreadyExists: error = ResponseError.urlAlreadyExists
         case .success(let url):
             data = store(url: url)
             statusCode = 201
         default:
-            error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+            error = ResponseError.unknownError
         }
         handler(data, error, statusCode)
     }
@@ -92,15 +88,15 @@ class MockURLHandler {
         if let stringId = request.url?.lastPathComponent, let identifier = Int(stringId) {
             switch validateId(id: identifier) {
             case .idNotFound:
-                error = NSError(domain: "URL not found", code: 110, userInfo: nil)
+                error = ResponseError.idNotFound
             case .success(let identifier):
                 data = delete(id: identifier)
                 statusCode = 200
             default:
-                error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+                error = ResponseError.unknownError
             }
         } else {
-            error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+            error = ResponseError.unknownError
         }
         handler(data, error, statusCode)
     }

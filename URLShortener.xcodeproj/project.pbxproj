@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		225C415C224F67B7004736F3 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415B224F67B7004736F3 /* UIImage+Scale.swift */; };
 		225C415E224F79B3004736F3 /* DeleteShortURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415D224F79B3004736F3 /* DeleteShortURLRequest.swift */; };
-		225C4160224F7B19004736F3 /* DeleteShortURLInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C415F224F7B19004736F3 /* DeleteShortURLInterpreter.swift */; };
 		225C4162224FAB2B004736F3 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C4161224FAB2B004736F3 /* UIViewController+Alert.swift */; };
 		225C416B224FE5F2004736F3 /* NetworkingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C416A224FE5F2004736F3 /* NetworkingMock.swift */; };
 		225C4178224FE77B004736F3 /* ShortURLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C4177224FE77B004736F3 /* ShortURLTests.swift */; };
 		225C4180224FE848004736F3 /* ShortURLControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C417F224FE848004736F3 /* ShortURLControllerTests.swift */; };
 		225C418C224FE9A3004736F3 /* ReadShortURLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C418B224FE9A3004736F3 /* ReadShortURLRequestTests.swift */; };
 		225C418E224FE9D9004736F3 /* WriteShortURLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C418D224FE9D9004736F3 /* WriteShortURLRequestTests.swift */; };
-		225C4190224FE9F4004736F3 /* DeleteShortURLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C418F224FE9F4004736F3 /* DeleteShortURLRequestTests.swift */; };
 		225C4194224FEA72004736F3 /* ReadShortURLInterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C4193224FEA72004736F3 /* ReadShortURLInterpreterTests.swift */; };
 		225C4198224FEA93004736F3 /* DeleteShortURLInterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C4197224FEA93004736F3 /* DeleteShortURLInterpreterTests.swift */; };
 		225C419A224FEAAB004736F3 /* WriteShortURLInterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C4199224FEAAB004736F3 /* WriteShortURLInterpreterTests.swift */; };
@@ -70,14 +68,12 @@
 /* Begin PBXFileReference section */
 		225C415B224F67B7004736F3 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		225C415D224F79B3004736F3 /* DeleteShortURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLRequest.swift; sourceTree = "<group>"; };
-		225C415F224F7B19004736F3 /* DeleteShortURLInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLInterpreter.swift; sourceTree = "<group>"; };
 		225C4161224FAB2B004736F3 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		225C416A224FE5F2004736F3 /* NetworkingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingMock.swift; sourceTree = "<group>"; };
 		225C4177224FE77B004736F3 /* ShortURLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortURLTests.swift; sourceTree = "<group>"; };
 		225C417F224FE848004736F3 /* ShortURLControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortURLControllerTests.swift; sourceTree = "<group>"; };
 		225C418B224FE9A3004736F3 /* ReadShortURLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadShortURLRequestTests.swift; sourceTree = "<group>"; };
 		225C418D224FE9D9004736F3 /* WriteShortURLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteShortURLRequestTests.swift; sourceTree = "<group>"; };
-		225C418F224FE9F4004736F3 /* DeleteShortURLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLRequestTests.swift; sourceTree = "<group>"; };
 		225C4193224FEA72004736F3 /* ReadShortURLInterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadShortURLInterpreterTests.swift; sourceTree = "<group>"; };
 		225C4197224FEA93004736F3 /* DeleteShortURLInterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortURLInterpreterTests.swift; sourceTree = "<group>"; };
 		225C4199224FEAAB004736F3 /* WriteShortURLInterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteShortURLInterpreterTests.swift; sourceTree = "<group>"; };
@@ -155,7 +151,6 @@
 			children = (
 				225C418B224FE9A3004736F3 /* ReadShortURLRequestTests.swift */,
 				225C418D224FE9D9004736F3 /* WriteShortURLRequestTests.swift */,
-				225C418F224FE9F4004736F3 /* DeleteShortURLRequestTests.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -311,7 +306,6 @@
 			children = (
 				26E5A378224CD064003225D9 /* ReadShortURLInterpreter.swift */,
 				26E5A380224CD8F1003225D9 /* WriteShortURLInterpreter.swift */,
-				225C415F224F7B19004736F3 /* DeleteShortURLInterpreter.swift */,
 			);
 			path = Interpreters;
 			sourceTree = "<group>";
@@ -492,7 +486,6 @@
 				26E5A37F224CD830003225D9 /* WriteShortURLRequest.swift in Sources */,
 				26E5A391224E411F003225D9 /* MockStorage.swift in Sources */,
 				26E5A371224CCFDF003225D9 /* InterpreterProtocol.swift in Sources */,
-				225C4160224F7B19004736F3 /* DeleteShortURLInterpreter.swift in Sources */,
 				26E5A388224CF52B003225D9 /* MockURLHandler.swift in Sources */,
 				225C415C224F67B7004736F3 /* UIImage+Scale.swift in Sources */,
 				26E5A386224CE1A0003225D9 /* MockURLSession.swift in Sources */,
@@ -524,7 +517,6 @@
 				225C418C224FE9A3004736F3 /* ReadShortURLRequestTests.swift in Sources */,
 				225C4178224FE77B004736F3 /* ShortURLTests.swift in Sources */,
 				225C4194224FEA72004736F3 /* ReadShortURLInterpreterTests.swift in Sources */,
-				225C4190224FE9F4004736F3 /* DeleteShortURLRequestTests.swift in Sources */,
 				225C416B224FE5F2004736F3 /* NetworkingMock.swift in Sources */,
 				225C4180224FE848004736F3 /* ShortURLControllerTests.swift in Sources */,
 				225C418E224FE9D9004736F3 /* WriteShortURLRequestTests.swift in Sources */,

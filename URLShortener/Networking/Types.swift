@@ -26,7 +26,6 @@ enum HTTPMethod: String {
 }
 
 enum ResponseError: Error {
-    case connectionError
     case invalidResponseError
     case decodeError
     case wrongUrlKey
@@ -34,11 +33,11 @@ enum ResponseError: Error {
     case wrongUrlScheme
     case urlAlreadyExists
     case idNotFound
+    case invalidRequest
     case unknownError
     
     var errorDescription: String {
         switch self {
-        case .connectionError: return "Connection error"
         case .invalidResponseError: return "Invalid response Error"
         case .decodeError: return "Data decode error"
         case .wrongUrlKey: return "Wrong URL key"
@@ -46,6 +45,7 @@ enum ResponseError: Error {
         case .wrongUrlScheme: return "Wrong URL scheme, only http and https schemes are supported"
         case .urlAlreadyExists: return "URL already exists"
         case .idNotFound: return "Short URL id not found"
+        case .invalidRequest: return "Invalid request"
         case .unknownError: return "Unknown error"
 
         }

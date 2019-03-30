@@ -9,13 +9,13 @@
 import Foundation
 
 class ReadShortURLInterpreter: NetworkResponseInterpreter {
-    
+     
     func interpret(data: Data?, response: HTTPURLResponse?, error: Error?, successStatusCode: Int) -> Response<[ShortURL], ResponseError> {
         
+        if let error = error { return Response.error(error as? ResponseError ?? .unknownError) }
         guard response?.statusCode == successStatusCode else {
             return Response.error(ResponseError.invalidResponseError)
         }
-        if let _ = error { return Response.error(ResponseError.invalidResponseError) }
         guard let data = data else { return Response.error(ResponseError.invalidResponseError) }
         guard let response = try? JSONDecoder().decode([ShortURL].self, from: data) else {
             return Response.error(ResponseError.decodeError)

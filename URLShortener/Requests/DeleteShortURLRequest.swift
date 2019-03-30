@@ -24,5 +24,5 @@ struct DeleteShortURLRequest: RequestProtocol {
         return ["Content-Type": "application/json"]
     }
     
-    let interpreter: DeleteShortURLInterpreter = DeleteShortURLInterpreter()
+    let interpreter: WriteShortURLInterpreter = WriteShortURLInterpreter()
 }
