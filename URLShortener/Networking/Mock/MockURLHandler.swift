@@ -29,6 +29,7 @@ class MockURLHandler {
         switch request.httpMethod {
         case HTTPMethod.get.rawValue:
             data = restore()
+
         case HTTPMethod.post.rawValue:
             switch validateUrl(data: request.httpBody) {
             case .noUrl:
@@ -41,9 +42,23 @@ class MockURLHandler {
                 error = NSError(domain: "URL already exists", code: 103, userInfo: nil)
             case .success(let url):
                 data = store(url: url)
+            default:
+                error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
             }
+
         case HTTPMethod.delete.rawValue:
-            break
+            if let stringId = request.url?.lastPathComponent, let identifier = Int(stringId) {
+                switch validateId(id: identifier) {
+                case .idNotFound:
+                    error = NSError(domain: "URL not found", code: 110, userInfo: nil)
+                case .success(let identifier):
+                    data = delete(id: identifier)
+                default:
+                    error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+                }
+            } else {
+                error = NSError(domain: "Unknown error", code: 199, userInfo: nil)
+            }
         default:
             statusCode = 400
             error = NSError(domain: "Invalid request", code: 150, userInfo: nil)
@@ -57,15 +72,16 @@ class MockURLHandler {
     
     // MARK: Private data validation
     
-    fileprivate enum ValidationResult {
-        case success(String)
+    fileprivate enum ValidationResult<T> {
+        case success(T)
         case wrongUrlKey
         case noUrl
         case wrongUrlScheme
         case urlAlreadyExists
+        case idNotFound
     }
     
-    fileprivate func validateUrl(data: Data?) -> ValidationResult {
+    fileprivate func validateUrl(data: Data?) -> ValidationResult<String> {
         guard let data = data else { return .noUrl }
         guard let response = try? JSONDecoder().decode(WriteData.self, from: data) else { return .wrongUrlKey }
         guard let url = URL(string: response.url) else { return .wrongUrlScheme }
@@ -75,7 +91,16 @@ class MockURLHandler {
         return items.filter { $0.url == response.url }.isEmpty ? .success(response.url) : .urlAlreadyExists
     }
     
-    // MARK: Private store / restore
+    fileprivate func validateId(id: Int) -> ValidationResult<Int> {
+        let localShorteners = getShorteners ?? MockStorageShorteners(items: [])
+        let item = localShorteners.items.first { $0.id == id }
+        if let item = item {
+            return .success(item.id)
+        }
+        return .idNotFound
+    }
+    
+    // MARK: Private store / restore / delete
     
     fileprivate struct WriteData: Decodable {
         let url: String
@@ -93,6 +118,15 @@ class MockURLHandler {
     fileprivate func restore() -> Data? {
         guard let data = try? JSONEncoder().encode(getSortedShorteners) else { return nil }
         return data
+    }
+    
+    fileprivate func delete(id: Int) -> Data? {
+        let localShorteners = getShorteners ?? MockStorageShorteners(items: [])
+        let shortenerToDelete = localShorteners.items.first { $0.id == id }
+        let newShorteners = localShorteners.items.filter { $0.id != id }
+        storage.store(MockStorageShorteners(items: newShorteners))
+        guard let resultData = try? JSONEncoder().encode(shortenerToDelete) else { return nil }
+        return resultData
     }
     
     fileprivate var getShorteners: MockStorageShorteners? {

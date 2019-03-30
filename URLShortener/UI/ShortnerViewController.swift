@@ -69,6 +69,17 @@ class ShortnerViewController: UITableViewController {
         }
     }
     
+    func deleteShortener(id: Int) {
+        shortenerController.deleteShortenerData(id: id) { (response) in
+            switch response {
+            case .success(_):
+                self.getShorteners()
+            case .error(let error):
+                print (error)
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.count
     }
@@ -80,6 +91,16 @@ class ShortnerViewController: UITableViewController {
             cell.delegate = self
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            deleteShortener(id: model[indexPath.row].id)
+        }
     }
 
 }

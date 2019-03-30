@@ -33,6 +33,7 @@ enum ResponseError: Error {
     case noUrl
     case wrongUrlScheme
     case urlAlreadyExists
+    case idNotFound
     case unknownError
     
     var errorDescription: String {
@@ -44,6 +45,7 @@ enum ResponseError: Error {
         case .noUrl: return "URL not found"
         case .wrongUrlScheme: return "Wrong URL scheme, only http and https are supported"
         case .urlAlreadyExists: return "URL already exists"
+        case .idNotFound: return "Short URL id not found"
         case .unknownError: return "Unknown error"
 
         }

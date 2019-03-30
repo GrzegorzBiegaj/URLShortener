@@ -40,4 +40,16 @@ class ShortenerController {
         }
     }
     
+    func deleteShortenerData(id: Int, handler: @escaping (Response<ShortURL, ResponseError>) -> ()) {
+        let request = DeleteShortenerRequest(id: id)
+        connection.performRequest(request: request) { (response) in
+            switch response {
+            case .success(let shortener):
+                handler(.success(shortener))
+            case .error(let error):
+                handler(.error(error))
+            }
+        }
+    }
+    
 }
