@@ -15,8 +15,27 @@ struct URLRequestMock: RequestProtocol {
     let statusCode: Int
     let error: Error?
     let data: Data?
+    let httpMetodRequest: HTTPMethod?
+    let body: [String: Any]?
        
     var endpoint: String { return url }
+    
+    init (url: String, statusCode: Int, error: Error? = nil, data: Data? = nil, httpMetodRequest: HTTPMethod? = nil, body: [String: Any]? = nil) {
+        self.url = url
+        self.statusCode = statusCode
+        self.error = error
+        self.data = data
+        self.httpMetodRequest = httpMetodRequest
+        self.body = body
+    }
+    
+    var httpMethod: HTTPMethod {
+        return httpMetodRequest ?? .get
+    }
+    
+    var bodyParameters: BodyParameters {
+        return body
+    }
     
     var headers: Headers {
         return ["Content-Type": "application/json"]

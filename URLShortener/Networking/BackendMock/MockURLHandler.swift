@@ -156,7 +156,8 @@ class MockURLHandler {
         let shortURL = ShortURL(id: makeId(), url: url, shortUrl: shortUrlString, creationDate: Date())
         let localShortURLs = getShortURLs ?? MockStorageShortURLs(items: [])
         storage.store(MockStorageShortURLs(items: localShortURLs.items + [shortURL]))
-        guard let resultData = try? JSONEncoder().encode(shortURL) else { return nil }
+        let result = ShortURL(id: shortURL.id, url: shortURL.url, shortUrl: getComposedShortUrl(shortUrl: shortURL), creationDate: shortURL.creationDate)
+        guard let resultData = try? JSONEncoder().encode(result) else { return nil }
         return resultData
     }
     
@@ -170,7 +171,9 @@ class MockURLHandler {
         let shortURLToDelete = localShortURLs.items.first { $0.id == id }
         let newShortURL = localShortURLs.items.filter { $0.id != id }
         storage.store(MockStorageShortURLs(items: newShortURL))
-        guard let resultData = try? JSONEncoder().encode(shortURLToDelete) else { return nil }
+        guard let shortURLToDel = shortURLToDelete else { return nil }
+        let result = ShortURL(id: shortURLToDel.id, url: shortURLToDel.url, shortUrl: getComposedShortUrl(shortUrl: shortURLToDel), creationDate: shortURLToDel.creationDate)
+        guard let resultData = try? JSONEncoder().encode(result) else { return nil }
         return resultData
     }
     
@@ -181,14 +184,17 @@ class MockURLHandler {
     fileprivate var getSortedShortURLs: [ShortURL] {
         guard let items = getShortURLs?.items else { return [] }
         let sorted = items.sorted(by: { $0.creationDate > $1.creationDate })
-        return sorted.map {
-            let url = MockURLHandler.outputPrefixURL.appendingPathComponent($0.shortUrl)
-            var components = URLComponents()
-            components.scheme = URL(string: $0.url)?.scheme
-            components.host = url.host
-            components.path = url.path
-            let newUrl = components.url ?? url
-            return ShortURL(id: $0.id, url: $0.url, shortUrl: newUrl.absoluteString, creationDate: $0.creationDate) }
+        return sorted.map { ShortURL(id: $0.id, url: $0.url, shortUrl: getComposedShortUrl(shortUrl: $0), creationDate: $0.creationDate) }
+    }
+    
+    fileprivate func getComposedShortUrl(shortUrl: ShortURL) -> String {
+        let url = MockURLHandler.outputPrefixURL.appendingPathComponent(shortUrl.shortUrl)
+        var components = URLComponents()
+        components.scheme = URL(string: shortUrl.url)?.scheme
+        components.host = url.host
+        components.path = url.path
+        let newUrl = components.url ?? url
+        return newUrl.absoluteString
     }
     
     // MARK: Private generate keys
