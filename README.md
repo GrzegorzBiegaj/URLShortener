@@ -4,16 +4,16 @@ Created by Grzegorz Biegaj (4 days demo project)
 
 ## Project description
 
-URLShortener is just an iOS demo app presenting clean code and application architecture.
-* the aim is to build a client application using a RESTful API.
-* the Main feature of the app is to generate shortened URL (through API request).
-* the second feature of the app is to display the list of shortened URLs, generated in the past (through API request).
+URLShortener is just an iOS demo app presenting clean code and application architecture:
+* the aim is to build a client application using a RESTful API
+* the Main feature of the app is to generate shortened URL (through API request)
+* the second feature of the app is to display the list of shortened URLs, generated in the past (through API request)
 * additional feature of the app is to remove already generated shortened URLs (through API request)
-* selecting an URL in the list should open the default web browser.
+* selecting an URL in the list should open the default web browser
 * design, should look like this mock: https://imgur.com/zqLILsC
 
 #### REMARKS:
-* there is no any backend yet, so all the backend responses are mocked locally in the app.
+* there is no any backend yet, so all the backend responses are mocked locally in the app
 * user can switch between using local mock and backend by selecting urlSession property in RequestProtocol extension
 
 ## Architecture
@@ -28,7 +28,7 @@ Most of possible unit tests are implemented.
 Because of usage unit tests it was necessary to introduce dependency injection to separate components.
 
 ### Dependencies
-No external dependencies
+No external dependencies.
 
 ### Programming tools
 Xcode 10.1, swift 4.1
