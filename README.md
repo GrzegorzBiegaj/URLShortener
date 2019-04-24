@@ -31,4 +31,4 @@ Because of usage unit tests it was necessary to introduce dependency injection t
 No external dependencies.
 
 ### Programming tools
-Xcode 10.1, swift 4.1
+Xcode 10.2.1, swift 5.0
