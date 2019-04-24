@@ -10,7 +10,7 @@ import Foundation
 
 protocol RequestConnectionProtocol {
     
-    func performRequest<Req: RequestProtocol>(request: Req, handler: @escaping (Response<Req.InterpreterType.SuccessType, Req.InterpreterType.ErrorType>) -> Void)
+    func performRequest<Req: RequestProtocol>(request: Req, handler: @escaping (Result<Req.InterpreterType.SuccessType, Req.InterpreterType.ErrorType>) -> Void)
 }
 
 class RequestConnection: RequestConnectionProtocol {
@@ -21,7 +21,7 @@ class RequestConnection: RequestConnectionProtocol {
     
     // MARK: Public interface
     
-    func performRequest<Req: RequestProtocol>(request: Req, handler: @escaping (Response<Req.InterpreterType.SuccessType, Req.InterpreterType.ErrorType>) -> Void) {
+    func performRequest<Req: RequestProtocol>(request: Req, handler: @escaping (Result<Req.InterpreterType.SuccessType, Req.InterpreterType.ErrorType>) -> Void) {
         
         guard let url = computeURL(request) else { return }
         guard let urlRequest = setupURLRequest(request, url: url) else { return }

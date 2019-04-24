@@ -33,7 +33,7 @@ class ReadShortURLInterpreterTests: XCTestCase {
         switch resp {
         case .success(let data):
             XCTAssertEqual(data, shortURLs)
-        case .error(_):
+        case .failure(_):
             XCTFail()
         }
     }
@@ -47,7 +47,7 @@ class ReadShortURLInterpreterTests: XCTestCase {
         switch resp {
         case .success(_):
             XCTFail()
-        case .error(let responseError):
+        case .failure(let responseError):
             XCTAssertEqual(responseError, ResponseError.invalidResponseError)
         }
     }
@@ -63,7 +63,7 @@ class ReadShortURLInterpreterTests: XCTestCase {
         switch resp {
         case .success(_):
             XCTFail()
-        case .error(let responseError):
+        case .failure(let responseError):
             XCTAssertEqual(responseError, ResponseError.wrongUrlScheme)
         }
     }

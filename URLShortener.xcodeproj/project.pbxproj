@@ -445,13 +445,16 @@
 				TargetAttributes = {
 					26E5A332224CAE6F003225D9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					26E5A346224CAE72003225D9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 26E5A332224CAE6F003225D9;
 					};
 					26E5A351224CAE72003225D9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 26E5A332224CAE6F003225D9;
 					};
 				};
@@ -720,7 +723,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biegaj.grzegorz.demo.URLShortener;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -737,7 +740,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biegaj.grzegorz.demo.URLShortener;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -756,7 +759,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biegaj.grzegorz.demo.URLShortenerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/URLShortener.app/URLShortener";
 			};
@@ -776,7 +779,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biegaj.grzegorz.demo.URLShortenerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/URLShortener.app/URLShortener";
 			};
@@ -795,7 +798,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biegaj.grzegorz.demo.URLShortenerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = URLShortener;
 			};
@@ -814,7 +817,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biegaj.grzegorz.demo.URLShortenerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = URLShortener;
 			};

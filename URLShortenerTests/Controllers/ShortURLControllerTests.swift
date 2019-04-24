@@ -32,7 +32,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(let responseData):
                 XCTAssertEqual(responseData, shortURLs)
-            case .error(_):
+            case .failure(_):
                 XCTFail()
             }
         }
@@ -46,7 +46,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(_):
                 XCTFail()
-            case .error(let error):
+            case .failure(let error):
                 XCTAssertEqual(error, ResponseError.invalidResponseError)
             }
         }
@@ -60,7 +60,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(_):
                 XCTFail()
-            case .error(let error):
+            case .failure(let error):
                 XCTAssertEqual(error, ResponseError.decodeError)
             }
         }
@@ -85,7 +85,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(let responseData):
                 XCTAssertEqual(responseData, shortURL)
-            case .error(_):
+            case .failure(_):
                 XCTFail()
             }
         }
@@ -99,7 +99,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(_):
                 XCTFail()
-            case .error(let error):
+            case .failure(let error):
                 XCTAssertEqual(error, ResponseError.invalidResponseError)
             }
         }
@@ -113,7 +113,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(_):
                 XCTFail()
-            case .error(let error):
+            case .failure(let error):
                 XCTAssertEqual(error, ResponseError.urlAlreadyExists)
             }
         }
@@ -138,7 +138,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(let responseData):
                 XCTAssertEqual(responseData, shortURL)
-            case .error(_):
+            case .failure(_):
                 XCTFail()
             }
         }
@@ -152,7 +152,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(_):
                 XCTFail()
-            case .error(let error):
+            case .failure(let error):
                 XCTAssertEqual(error, ResponseError.invalidResponseError)
             }
         }
@@ -166,7 +166,7 @@ class ShortURLControllerTests: XCTestCase {
             switch response {
             case .success(_):
                 XCTFail()
-            case .error(let error):
+            case .failure(let error):
                 XCTAssertEqual(error, ResponseError.urlAlreadyExists)
             }
         }

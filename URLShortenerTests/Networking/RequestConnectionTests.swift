@@ -30,7 +30,7 @@ class RequestConnectionTests: XCTestCase {
             switch response {
             case .success(let response):
                 XCTAssertEqual(response, shortURLs)
-            case .error(_):
+            case .failure(_):
                 XCTFail()
             }
         }
@@ -44,7 +44,7 @@ class RequestConnectionTests: XCTestCase {
             switch response {
             case .success(_):
                 XCTFail()
-            case .error(let error):
+            case .failure(let error):
                 XCTAssertEqual(error, ResponseError.invalidResponseError)
             }
         }
@@ -59,7 +59,7 @@ class RequestConnectionTests: XCTestCase {
             switch response {
             case .success(_):
                 XCTFail()
-            case .error(let error):
+            case .failure(let error):
                 XCTAssertEqual(error, ResponseError.wrongUrlKey)
             }
         }

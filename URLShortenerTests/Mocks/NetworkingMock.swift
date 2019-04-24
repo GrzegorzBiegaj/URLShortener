@@ -21,7 +21,7 @@ class NetworkingMock: RequestConnectionProtocol {
         self.response = response
     }
     
-    func performRequest<Req: RequestProtocol>(request: Req, handler: @escaping (Response<Req.InterpreterType.SuccessType, Req.InterpreterType.ErrorType>) -> Void) {
+    func performRequest<Req: RequestProtocol>(request: Req, handler: @escaping (Result<Req.InterpreterType.SuccessType, Req.InterpreterType.ErrorType>) -> Void) {
         
         let res = request.interpreter.interpret(data: data, response: response, error: error, successStatusCode: request.successStatusCode)
         handler(res)

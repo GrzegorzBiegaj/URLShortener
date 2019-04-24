@@ -12,5 +12,5 @@ protocol NetworkResponseInterpreter {
     associatedtype SuccessType
     associatedtype ErrorType: Error
     
-    func interpret(data: Data?, response: HTTPURLResponse?, error: Error?, successStatusCode: Int) -> Response<SuccessType, ErrorType>
+    func interpret(data: Data?, response: HTTPURLResponse?, error: Error?, successStatusCode: Int) -> Result<SuccessType, ErrorType>
 }
