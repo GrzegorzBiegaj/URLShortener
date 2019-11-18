@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,13 +41,13 @@
                                 <constraint firstItem="Vgd-C3-idq" firstAttribute="top" secondItem="bSW-xA-81c" secondAttribute="top" constant="5" id="SmM-5y-wVP"/>
                                 <constraint firstAttribute="bottom" secondItem="Vgd-C3-idq" secondAttribute="bottom" constant="5" id="eRP-My-XoH"/>
                                 <constraint firstAttribute="trailing" secondItem="Vgd-C3-idq" secondAttribute="trailing" constant="5" id="gr2-oP-bKG"/>
-                                <constraint firstAttribute="width" constant="32" id="oPT-qW-h8n"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="bSW-xA-81c" firstAttribute="leading" secondItem="pvd-9d-j2F" secondAttribute="leading" id="ZvP-nt-t1j"/>
+                        <constraint firstAttribute="trailing" secondItem="bSW-xA-81c" secondAttribute="trailing" id="gje-5q-XSi"/>
                         <constraint firstItem="bSW-xA-81c" firstAttribute="centerY" secondItem="pvd-9d-j2F" secondAttribute="centerY" id="sQ0-nO-bQa"/>
                     </constraints>
                 </view>
@@ -67,6 +65,6 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow" width="225" height="225"/>
+        <image name="arrow" width="112.5" height="112.5"/>
     </resources>
 </document>

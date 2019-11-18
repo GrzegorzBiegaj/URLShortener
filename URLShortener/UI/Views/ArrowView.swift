@@ -35,6 +35,7 @@ class ArrowView: UIView {
     @IBOutlet weak var contentView: ArrowView!
     @IBOutlet weak var backgroundView: UIView! {
         didSet {
+            backgroundView.frame = frame
             backgroundView.layer.cornerRadius = backgroundView.bounds.height / 2
             backgroundView.clipsToBounds = true
             backgroundView.backgroundColor = backgroundViewColor
@@ -71,7 +72,8 @@ class ArrowView: UIView {
     fileprivate func loadNib() {
         Bundle.main.loadNibNamed(String(describing: ArrowView.self), owner: self, options: nil)
         addSubview(contentView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = true
+        contentView.frame = frame
         contentView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
